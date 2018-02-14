@@ -14,10 +14,8 @@
 Route::get('/', function () {
     return view('index');
 });
-Route::group([
-  'middleware'=>['auth']] ,function(){
 
-  Route::resources([
+Route::resources([
     'superadmin' => 'SuperAdminController',
     'inventor' => 'InventorController',
     'admin' => 'AdminController',
@@ -28,8 +26,9 @@ Route::group([
     'user' => 'UserController',
     'adminkuesioner' => 'AdminkuesionerController'
   ]);
-
-
+  
+Route::group([
+  'middleware'=>['auth']] ,function(){
 
   Route::get('/home', 'HomeController@index');
 

@@ -27,37 +27,41 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Data Register Pengusul">
-          <a class="nav-link" href="dashboard_admin_Pengusul.html">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Data Register Pengusul">
+          <a class="nav-link" href="{{route('admin.create')}}">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Data Pengusul</span>
           </a>
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Unggah Surat Pengantar">
+          <a class="nav-link" href="{{route('admin.create')}}">
+            <i class="fa fa-fw fa-file"></i>
+            <span class="nav-link-text">Unggah Surat Pengantar</span>
+          </a>
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Data Invetor">
-          <a class="nav-link" href="dashboard_admin.html">
+          <a class="nav-link" href="datainventor.html">
             <i class="fa fa-fw fa-file"></i>
             <span class="nav-link-text">Data Inventor</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Checklist Administratif">
-          <a class="nav-link" href="dashboard_admin_cek.html">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Review Proposal">
+          <a class="nav-link" href="{{route('proposal.index')}}">
             <i class="fa fa-fw fa-check"></i>
             <span class="nav-link-text">Review Proposal</span>
           </a>
         </li>
-        
-        
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Pendaftaran Bupati/Walikota Pelopor Inovasi Daerah">
-              <a class="nav-link" href="{{route('adminkuesioner.create')}}">
-                <i class="fa fa-fw fa-table"></i>
-                <span class="nav-link-text">Pendaftaran Bupati/Walikota Pelopor Inovasi Daerah</span>
-              </a>
+          <a class="nav-link" href="{{route('adminkuesioner.create')}}">
+            <i class="fa fa-fw fa-sign-in"></i>
+            <span class="nav-link-text">Pendaftaran Bupati/Walikota Pelopor Inovasi Daerah</span>
+          </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Ganti Password">
-              <a class="nav-link" href="#">
-                <i class="fa fa-fw fa-table"></i>
-                <span class="nav-link-text">Ganti Password</span>
-              </a>
+          <a class="nav-link" href="{{route('adminkuesioner.create')}}">
+            <i class="fa fa-fw fa-key"></i>
+            <span class="nav-link-text">Ganti Password</span>
+          </a>
         </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">

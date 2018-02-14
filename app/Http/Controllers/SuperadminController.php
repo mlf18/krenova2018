@@ -15,7 +15,7 @@ class SuperadminController extends Controller
      */
     public function index()
     {
-        //
+        return view ('superadmin.index');
     }
 
     /**
@@ -25,7 +25,7 @@ class SuperadminController extends Controller
      */
     public function create()
     {
-        //
+        return view('superadmin.profil');
     }
 
     /**

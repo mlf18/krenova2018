@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use Validator;
+
+use App\User;
+
+use App\Admin;
+
 class UserController extends Controller
 {
     /**
@@ -15,7 +21,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return view('superadmin.akun');
     }
 
     /**
@@ -25,7 +31,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('superadmin.akun.create');
     }
 
     /**
@@ -36,7 +42,31 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|unique:users',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        
+        $user = User::create($request->all());
+        $user->save();
+        
+        $admin = new Admin();
+
+        $admin->user_id = $user->id;
+        $admin->nama = $request->input('nama');
+        $admin->pekerjaan = $request->input('pekerjaan');
+        $admin->alamat = $request->input('alamat');
+        $admin->no_telp = $request->input('no_telp');
+        $admin->no_telp = $request->input('kabupaten');
+
+
+        $admin->save();
+             
+       
+        return redirect('superadmin');
     }
 
     /**
