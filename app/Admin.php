@@ -10,4 +10,7 @@ class Admin extends Model
     public function profil(){
         return $this->hasMany('App\Profil');
     }
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }

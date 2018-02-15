@@ -40,17 +40,18 @@
                           </tr>
                         </tfoot>
                         <tbody>
-                          
+                          @foreach($inventors as $inventor)
                           <tr>
                             <td>1</td>
-          				  <td>Ahmad Syarifuddin Latif</td>
-                            <td>Desa Mangunrejo Kec. Kebongung</td>
-                            <td>Swasta</td>
-                            <td>087832203210</td>
-                            <td>fuddin@mail.com</td>
-          				  <td><button type="button" class="btn btn-primary">Edit</button> 
+          				  <td>{{$inventor->nama}}</td>
+                            <td>{{$inventor->alamat}}</td>
+                            <td>pekerjaan</td>
+                            <td>{{$inventor->no_telp}}</td>
+                            <td>{{$inventor->email}}</td>
+          				  <td><a href="{{url('admin/editprofil/'.$inventor->id)}}" class="btn btn-primary">Edit</a> 
           						<button type="button" class="btn btn-danger">Hapus</button></td>
                     </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

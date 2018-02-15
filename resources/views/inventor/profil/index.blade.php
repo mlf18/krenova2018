@@ -18,7 +18,7 @@
                             </div>
                             <div class="mr-5">Profil Inventor</div>
                         </div>
-                        <a class="card-footer text-white clearfix small z-1" href="{{url('inventor/create')}}">
+                        <a class="card-footer text-white clearfix small z-1" href="{{url('inventor/'.$profil.'/edit')}}">
                             <span class="float-left">Lihat Profil</span>
                             <span class="float-right">
                             <i class="fa fa-angle-right"></i>

@@ -86,7 +86,7 @@ class ProposalController extends Controller
         $inventor->judul=$request->input('temuan_baru_kelompok');
         $inventor->pengembangan=$request->input('pengembangan_dari_kelompok');
         $inventor->profil_id=$profil->id;
-        // $inventor->save();
+        $inventor->save();
         // if($request->input('submit')=="draft-profil"){
         //     $temuan->draft=1;
         // }else{
@@ -114,7 +114,7 @@ class ProposalController extends Controller
         $temuan->quantity_bahan=$request->input('komersil_banyak');
         $temuan->orientasi=$request->input('komersil_kebutuhan');
         $temuan->profil_id=$profil->id;
-        // $temuan->save();
+        $temuan->save();
         $proposal= new Proposal();
         $proposal->abstrak=$request->input('proposal_abstrak');
         $proposal->latar_belakang=$request->input('proposal_latar_belakang');

@@ -22,7 +22,8 @@ class InventorController extends Controller
     public function index()
     {
         //
-        return view('inventor.profil.index');
+        $profil=Auth::user()->id;
+        return view('inventor.profil.index')->with(['profil'=>$profil]);
     }
     /**
      * Show the form for creating a new resource.
@@ -31,7 +32,8 @@ class InventorController extends Controller
      */
     public function create()
     {
-        return view('inventor.profil.create');
+        $inventor=Auth::user()->profil;
+        return view('inventor.profil.create')->with(['profil'=>$inventor]);
     }
     /**
      * Store a newly created resource in storage.
@@ -52,6 +54,7 @@ class InventorController extends Controller
         $user->name=$request->input('username');
         $user->password=bcrypt($request->input('password'));
         $user->email=$request->input('email');
+        $user->role="inventor";
         $user->save();
         $profil->user_id=$user->id;
         $profil->save();
@@ -73,7 +76,7 @@ class InventorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
         //
         $profil=Auth::user()->profil;

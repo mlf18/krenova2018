@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Auth;
+use App\Inventor;
+use App\Profil;
+
 use App\Http\Requests;
 
 class AdminController extends Controller
@@ -15,9 +19,28 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $inventor=Auth::user()->admin->profil;
+        return view('admin.index')->with(['inventors'=>$inventor]);
     }
-
+    public function editinventor($id){
+        $profil=Profil::find($id);
+        return view('admin.editprofil')->with(['profil'=>$profil]);
+    }
+    public function updateprofil(Request $request, $id){
+        $profil=Profil::find($id);
+        $profil->nama=$request->input('nama');
+        $profil->alamat=$request->input('alamat');
+        $profil->email=$request->input('email');
+        $profil->no_telp=$request->input('no_telp');
+        $profil->judul=$request->input('inovasi');
+        $profil->save();
+        return redirect('admin');
+    }
+    public function destroyprofil($id){
+        $profil=Profil::find($id);
+        $profil->delete();
+        return redirect('admin');
+    }
     public function cekproposal()
     {
         return view('admin.cekproposal');
@@ -42,9 +65,6 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         //
-        $profil = new Profil();
-        $user = new User();
-
     }
 
     /**
