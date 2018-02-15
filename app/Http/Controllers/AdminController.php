@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Inventor;
 use App\Profil;
+use App\User;
 
 use App\Http\Requests;
 
@@ -28,17 +29,22 @@ class AdminController extends Controller
     }
     public function updateprofil(Request $request, $id){
         $profil=Profil::find($id);
+        $user=User::find($profil->user_id);
         $profil->nama=$request->input('nama');
         $profil->alamat=$request->input('alamat');
         $profil->email=$request->input('email');
         $profil->no_telp=$request->input('no_telp');
         $profil->judul=$request->input('inovasi');
+        $user->email=$request->input('email');
         $profil->save();
+        $user->save();
         return redirect('admin');
     }
-    public function destroyprofil($id){
+    public function deletesprofil($id){
         $profil=Profil::find($id);
+        $user=User::find($profil->user_id);
         $profil->delete();
+        $user->delete();
         return redirect('admin');
     }
     public function cekproposal()

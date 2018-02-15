@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 Route::get('/admin/editprofil/{id}', 'AdminController@editinventor');
 Route::patch('/admin/updateprofil/{id}', 'AdminController@updateprofil');
-Route::delete('/admin/deleteprofil/{id}', 'AdminController@deleteprofil');
+Route::post('/admin/deletesprofil/{id}', 'AdminController@deletesprofil');
 Route::resources([
     'superadmin' => 'SuperAdminController',
     'inventor' => 'InventorController',

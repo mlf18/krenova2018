@@ -48,8 +48,12 @@
                             <td>pekerjaan</td>
                             <td>{{$inventor->no_telp}}</td>
                             <td>{{$inventor->email}}</td>
-          				  <td><a href="{{url('admin/editprofil/'.$inventor->id)}}" class="btn btn-primary">Edit</a> 
-          						<button type="button" class="btn btn-danger">Hapus</button></td>
+                    <td><a href="{{url('admin/editprofil/'.$inventor->id)}}" class="btn btn-primary">Edit</a> 
+                      <form method="post" action="{{url('/admin/deletesprofil/'.$inventor->id)}}" enctype="multipart/form-data">
+                        {{csrf_field()}}
+                        <button type="submit" class="btn btn-danger">Hapus</button>
+                      </form>
+                    </td>
                     </tr>
                     @endforeach
                   </tbody>

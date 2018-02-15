@@ -130,71 +130,71 @@ class ProposalController extends Controller
         // }else{
         //     $proposal->draft=0;
         // }
-        $fileName=time().'.jpeg';
+        $fileName='proposal_file_1_'.time().'.jpeg';
         $request->file('proposal_file_1')->move('file/', $fileName);
         $proposal->foto1_name=$fileName;
         if($request->hasFile('proposal_file_2')){
-            $fileName=time().'.jpeg';
+            $fileName='proposal_file_2'.time().'.jpeg';
             $request->file('proposal_file_2')->move('file/', $fileName);
             $proposal->foto2_name=$fileName;
         }else{
             $proposal->foto2_name='';
         }
         if($request->hasFile('proposal_file_3')){
-            $fileName=time().'.jpeg';
+            $fileName='proposal_file_3_'.time().'.jpeg';
             $request->file('proposal_file_3')->move('file/', $fileName);
             $proposal->foto3_name=$fileName;
         }else{
             $proposal->foto3_name='';
         }
         if($request->hasFile('proposal_file_4')){
-            $fileName=time().'.jpeg';
+            $fileName='proposal_file_4'.time().'.jpeg';
             $request->file('proposal_file_4')->move('file/', $fileName);
             $proposal->foto4_name=$fileName;
         }else{
             $proposal->foto4_name='';
         }
-        $fileName=time().'.jpeg';
+        $fileName='proposal_surat_'.time().'.jpeg';
         $request->file('proposal_surat')->move('file/', $fileName);
         $proposal->suratpengantar_name=$fileName;
         // $fileName=time().'.jpeg';
         // $request->file('proposal_pendukung')->move('file/', $fileName);
         // $proposal->spk_name=$fileName;
-        $fileName=time().'.jpeg';
+        $fileName='proposal_pendukung_'.time().'.jpeg';
         $request->file('proposal_pendukung')->move('file/', $fileName);
         $proposal->lampiran1_name=$fileName;
         if($request->hasFile('proposal_daftar_riwayat_1')){
-            $fileName=time().'.pdf';
+            $fileName='proposal_daftar_riwayat_2_'.time().'.pdf';
             $request->file('proposal_daftar_riwayat_1')->move('file/', $fileName);
             $proposal->lampiran2_name=$fileName;
         }else{
             $proposal->lampiran2_name='';
         }
         if($request->hasFile('proposal_daftar_riwayat_2')){
-            $fileName=time().'.pdf';
+            $fileName='proposal_daftar_riwayat_2_'.time().'.pdf';
             $request->file('proposal_daftar_riwayat_2')->move('file/', $fileName);
             $proposal->lampiran3_name=$fileName;
         }else{
             $proposal->lampiran3_name='';
         }
         if($request->hasFile('proposal_daftar_riwayat_3')){
-            $fileName=time().'.pdf';
+            $fileName='proposal_daftar_riwayat_3_'.time().'.pdf';
             $request->file('proposal_daftar_riwayat_3')->move('file/', $fileName);
             $proposal->lampiran4_name=$fileName;
         }else{
             $proposal->lampiran4_name='';
         }
         if($request->hasFile('proposal_daftar_riwayat_4')){
-            $fileName=time().'.pdf';
+            $fileName='proposal_daftar_riwayat_4_'.time().'.pdf';
             $request->file('proposal_daftar_riwayat_4')->move('file/', $fileName);
             $proposal->lampiran5_name=$fileName;
         }else{
             $proposal->lampiran5_name='';
         }
-        $fileName=time().'.jpeg';
+        $fileName='proposal_daftar_riwayat_hidup_'.time().'.jpeg';
         $request->file('proposal_daftar_riwayat_hidup')->move('file/', $fileName);
         $proposal->riwayathidup_name=$fileName;
-        $fileName=time().'.jpeg';
+        $fileName='proposal_foto_ktp_'.time().'.jpeg';
         $request->file('proposal_foto_ktp')->move('file/', $fileName);
         $proposal->ktp_name=$fileName;
         $proposal->status=1;
