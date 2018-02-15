@@ -1,5 +1,3 @@
-@extends ('layouts.inventor')
-@section ('content')
     <div class="tab-pane fade show active" id="pendaftaran" role="tabpanel" aria-labelledby="pendaftaran-tab">
             {{--  <form method="POST" action="{{url('/proposals')}}">
                 {{ csrf_field() }}  --}}
@@ -7,66 +5,66 @@
                     <br>
                     <h4>PENGUSUL</h4>
                     <label for="nama_pengusul">Nama</label>
-                    <input type="text" class="form-control" id="nama_pengusul" name="nama_pengusul" value="{{$pengusul->nama}}" readonly>
+                    <input type="text" class="form-control" id="nama_pengusul" name="nama_pengusul" value="{{$admin->nama}}" readonly>
                 </div>
                 <div class="form-group">
-                    <label for="jabatan_pengusul">Jabatan</label>
-                    <input type="text" class="form-control" id="jabatan_pengusul" name="jabatan_pengusul" value="{{$pengusul->jabatan}}" readonly>
+                    <label for="pekerjaan_pengusul">Jabatan</label>
+                    <input type="text" class="form-control" id="pekerjaan_pengusul" name="pekerjaan_pengusul" value="{{$admin->pekerjaan}}" readonly>
                 </div>
                 <div class="form-group">
                     <label for="lembaga_pengusul">Lembaga/Instansi</label>
-                    <input type="text" class="form-control" id="lembaga" name="lembaga_pengusul" value="{{$pengusul->lembaga}}" readonly>
+                    <input type="text" class="form-control" id="lembaga" name="lembaga_pengusul" value="{{$admin->lembaga}}" readonly>
                 </div>
                 <div class="form-group">
                     <label for="alamat_pengusul">Alamat</label>
-                    <input type="text" class="form-control" id="alamat_pengusul" name="alamat_pengusul" value="{{$pengusul->alamat}}" readonly>
+                    <input type="text" class="form-control" id="alamat_pengusul" name="alamat_pengusul" value="{{$admin->alamat}}" readonly>
                 </div>
                 <div class="form-group">
                     <label for="kabupaten_pengusul">Kabupaten/Kota</label>
                         <select class="form-control" id="kabupaten_pengusul" name="kabupaten_pengusul" readonly>
-                                <option value="banjarnegara" {{$pengusul->kabupaten=='banjarnegara'?'selected':''}}>Kabupaten Banjarnegara</option>
-                                <option value="banyumas" {{$pengusul->kabupaten=='banyumas'?'selected':''}}>Kabupaten Banyumas</option>
-                                <option value="batang" {{$pengusul->kabupaten=='batang'?'selected':''}} >Kabupaten Batang</option>
-                                <option value="blora" {{$pengusul->kabupaten=='blora'?'selected':''}}>Kabupaten Blora</option>
-                                <option value="boyolali" {{$pengusul->kabupaten=='boyolali'?'selected':''}}>Kabupaten Boyolali</option>
-                                <option value="brebes" {{$pengusul->kabupaten=='brebes'?'selected':''}}>Kabupaten Brebes</option>
-                                <option value="cilacap" {{$pengusul->kabupaten=='cilacap'?'selected':''}}>Kabupaten Cilacap</option>
-                                <option value="demak" {{$pengusul->kabupaten=='demak'?'selected':''}}>Kabupaten Demak</option>
-                                <option value="grobogan" {{$pengusul->kabupaten=='grobogan'?'selected':''}}>Kabupaten Grobogan</option>
+                                <option value="banjarnegara" {{$admin->kabupaten=='banjarnegara'?'selected':''}}>Kabupaten Banjarnegara</option>
+                                <option value="banyumas" {{$admin->kabupaten=='banyumas'?'selected':''}}>Kabupaten Banyumas</option>
+                                <option value="batang" {{$admin->kabupaten=='batang'?'selected':''}} >Kabupaten Batang</option>
+                                <option value="blora" {{$admin->kabupaten=='blora'?'selected':''}}>Kabupaten Blora</option>
+                                <option value="boyolali" {{$admin->kabupaten=='boyolali'?'selected':''}}>Kabupaten Boyolali</option>
+                                <option value="brebes" {{$admin->kabupaten=='brebes'?'selected':''}}>Kabupaten Brebes</option>
+                                <option value="cilacap" {{$admin->kabupaten=='cilacap'?'selected':''}}>Kabupaten Cilacap</option>
+                                <option value="demak" {{$admin->kabupaten=='demak'?'selected':''}}>Kabupaten Demak</option>
+                                <option value="grobogan" {{$admin->kabupaten=='grobogan'?'selected':''}}>Kabupaten Grobogan</option>
                                 
-                                <option value="jepara" {{$pengusul->kabupaten=='jepara'?'selected':''}}>Kabupaten Jepara</option>
-                                <option value="karanganyar" {{$pengusul->kabupaten=='karanganyar'?'selected':''}}>Kabupaten Karanganyar</option>
-                                <option value="kebumen" {{$pengusul->kabupaten=='kebumen'?'selected':''}}>Kabupaten Kebumen</option>
-                                <option value="kendal" {{$pengusul->kabupaten=='kendal'?'selected':''}}>Kabupaten Kendal</option>
-                                <option value="klaten" {{$pengusul->kabupaten=='klaten'?'selected':''}}>Kabupaten Klaten</option>
-                                <option value="kudus" {{$pengusul->kabupaten=='kudus'?'selected':''}}>Kabupaten Kudus</option>
-                                <option value="magelang" {{$pengusul->kabupaten=='magelang'?'selected':''}}>Kabupaten Magelang</option>
-                                <option value="pati" {{$pengusul->kabupaten=='pati'?'selected':''}}>Kabupaten Pati</option>
-                                <option value="pekalongan" {{$pengusul->kabupaten=='pekalongan'?'selected':''}}>Kabupaten Pekalongan</option>
+                                <option value="jepara" {{$admin->kabupaten=='jepara'?'selected':''}}>Kabupaten Jepara</option>
+                                <option value="karanganyar" {{$admin->kabupaten=='karanganyar'?'selected':''}}>Kabupaten Karanganyar</option>
+                                <option value="kebumen" {{$admin->kabupaten=='kebumen'?'selected':''}}>Kabupaten Kebumen</option>
+                                <option value="kendal" {{$admin->kabupaten=='kendal'?'selected':''}}>Kabupaten Kendal</option>
+                                <option value="klaten" {{$admin->kabupaten=='klaten'?'selected':''}}>Kabupaten Klaten</option>
+                                <option value="kudus" {{$admin->kabupaten=='kudus'?'selected':''}}>Kabupaten Kudus</option>
+                                <option value="magelang" {{$admin->kabupaten=='magelang'?'selected':''}}>Kabupaten Magelang</option>
+                                <option value="pati" {{$admin->kabupaten=='pati'?'selected':''}}>Kabupaten Pati</option>
+                                <option value="pekalongan" {{$admin->kabupaten=='pekalongan'?'selected':''}}>Kabupaten Pekalongan</option>
                                 
-                                <option value="pemalang" {{$pengusul->kabupaten=='pemalang'?'selected':''}}>Kabupaten Pemalang</option>
-                                <option value="purbalingga" {{$pengusul->kabupaten=='purbalingga'?'selected':''}}>Kabupaten Purbalingga</option>
-                                <option value="purworejo" {{$pengusul->kabupaten=='purworejo'?'selected':''}}>Kabupaten Purworejo</option>
-                                <option value="rembang" {{$pengusul->kabupaten=='rembang'?'selected':''}}>Kabupaten Rembang</option>
-                                <option value="semarang" {{$pengusul->kabupaten=='semarang'?'selected':''}}>Kabupaten Semarang</option>
-                                <option value="sragen" {{$pengusul->kabupaten=='sragen'?'selected':''}}>Kabupaten Sragen</option>
-                                <option value="sukoharjo" {{$pengusul->kabupaten=='sukoharjo'?'selected':''}}>Kabupaten Sukoharjo</option>
-                                <option value="tegal" {{$pengusul->kabupaten=='tegal'?'selected':''}}>Kabupaten Tegal</option>
-                                <option value="temanggung" {{$pengusul->kabupaten=='temanggung'?'selected':''}}>Kabupaten Temanggung</option>
+                                <option value="pemalang" {{$admin->kabupaten=='pemalang'?'selected':''}}>Kabupaten Pemalang</option>
+                                <option value="purbalingga" {{$admin->kabupaten=='purbalingga'?'selected':''}}>Kabupaten Purbalingga</option>
+                                <option value="purworejo" {{$admin->kabupaten=='purworejo'?'selected':''}}>Kabupaten Purworejo</option>
+                                <option value="rembang" {{$admin->kabupaten=='rembang'?'selected':''}}>Kabupaten Rembang</option>
+                                <option value="semarang" {{$admin->kabupaten=='semarang'?'selected':''}}>Kabupaten Semarang</option>
+                                <option value="sragen" {{$admin->kabupaten=='sragen'?'selected':''}}>Kabupaten Sragen</option>
+                                <option value="sukoharjo" {{$admin->kabupaten=='sukoharjo'?'selected':''}}>Kabupaten Sukoharjo</option>
+                                <option value="tegal" {{$admin->kabupaten=='tegal'?'selected':''}}>Kabupaten Tegal</option>
+                                <option value="temanggung" {{$admin->kabupaten=='temanggung'?'selected':''}}>Kabupaten Temanggung</option>
                                 
-                                <option value="wonogiri" {{$pengusul->kabupaten=='wonogiri'?'selected':''}}>Kabupaten Wonogiri</option>
-                                <option value="wonosobo" {{$pengusul->kabupaten=='wonosobo'?'selected':''}}>Kabupaten Wonosobo</option>
-                                <option value="kota magelang" {{$pengusul->kabupaten=='kota magelang'?'selected':''}}>Kota Magelang</option>
-                                <option value="kota pekalongan" {{$pengusul->kabupaten=='kota pekalongan'?'selected':''}}>Kota Pekalongan</option>
-                                <option value="kota salatiga" {{$pengusul->kabupaten=='kota salatiga'?'selected':''}}>Kota Salatiga</option>
-                                <option value="kota semarang" {{$pengusul->kabupaten=='kota semarang'?'selected':''}}>Kota Semarang</option>
-                                <option value="kota surakarta" {{$pengusul->kabupaten=='kota surakarta'?'selected':''}}>Kota Surakarta</option>
-                                <option value="kota tegal" {{$pengusul->kabupaten=='kota tegal'?'selected':''}}>Kota Tegal</option>
+                                <option value="wonogiri" {{$admin->kabupaten=='wonogiri'?'selected':''}}>Kabupaten Wonogiri</option>
+                                <option value="wonosobo" {{$admin->kabupaten=='wonosobo'?'selected':''}}>Kabupaten Wonosobo</option>
+                                <option value="kota magelang" {{$admin->kabupaten=='kota magelang'?'selected':''}}>Kota Magelang</option>
+                                <option value="kota pekalongan" {{$admin->kabupaten=='kota pekalongan'?'selected':''}}>Kota Pekalongan</option>
+                                <option value="kota salatiga" {{$admin->kabupaten=='kota salatiga'?'selected':''}}>Kota Salatiga</option>
+                                <option value="kota semarang" {{$admin->kabupaten=='kota semarang'?'selected':''}}>Kota Semarang</option>
+                                <option value="kota surakarta" {{$admin->kabupaten=='kota surakarta'?'selected':''}}>Kota Surakarta</option>
+                                <option value="kota tegal" {{$admin->kabupaten=='kota tegal'?'selected':''}}>Kota Tegal</option>
                         </select>
                 </div>
                 <div class="form-group">
                     <label for="no_telp_pengusul">No Telepon/HP</label>
-                        <input type="text" class="form-control" id="no_telp_pengusul" name="no_telp_pengusul" value="{{$pengusul->no_telp}}" readonly>
+                        <input type="text" class="form-control" id="no_telp_pengusul" name="no_telp_pengusul" value="{{$admin->no_telp}}" readonly>
                 </div>
                 <p>Dengan ini kami merekomendasikan/mengusulkan nama tersebut di bawah ini untuk mengikuti pendaftaran Lomba Krenova Provinsi Jawa Tengah Tahun 2018.</p>
                 <nav>
@@ -99,7 +97,7 @@
                         </div>
                         <div class="form-group">
                             <label for="pekerjaan_perorangan">Pekerjaan</label>
-                            <input type="text" class="form-control" id="pekerjaan_perorangan" name="pekerjaan_perorangan" value="{{$profil->pekerjaan}}">
+                            <input type="text" class="form-control" id="pekerjaan_perorangan" name="pekerjaan_perorangan" value="{{isset($inventor->pekerjaan)?$inventor->pekerjaan:''}}">
                         </div>
                         <div class="form-group">
                             <label for="no_telp_perorangan">No Telepon/HP</label>
@@ -137,44 +135,43 @@
                         </div>
                         <div class="form-group">
                             <label for="alamat_kelompok">Alamat Kelompok</label>
-                            <input type="text" class="form-control" id="alamat_kelompok" name="alamat_kelompok" value="{{$profil->alamat}}" readonly>
+                            <input type="text" class="form-control" id="alamat_kelompok" name="alamat_kelompok" value="{{isset($inventor->alamat_kelompok)?$inventor->alamat_kelompok:''}}">
                         </div>
                         <div class="form-group">
                             <label for="no_hp_kelompok">No Telepon/HP Ketua</label>
-                            <input type="text" class="form-control" id="no_hp_kelompok" name="no_hp_kelompok" value="{{$profil->no_telp}}" readonly>
+                            <input type="text" class="form-control" id="no_hp_kelompok" name="no_hp_kelompok" value="{{isset($inventor->no_telp_kelompok)?$inventor->no_telp_kelompok:''}}">
                         </div>
                         <div class="form-group">
                             <label for="alamat_email_kelompok">Alamat E-mail</label>
-                            <input type="e-mail" class="form-control" id="alamat_email_kelompok" name="alamat_email_kelompok" value="{{$profil->email}}" readonly>
+                            <input type="e-mail" class="form-control" id="alamat_email_kelompok" name="alamat_email_kelompok" value="{{isset($inventor->email_kelompok)?$inventor->email_kelompok:''}}">
                         </div>
                         <div class="form-group">
                             <label for="nama_anggota_kelompok">Nama Anggota</label>
-                            <input type="text" class="form-control" id="nama_anggota_kelompok" name="nama_anggota_kelompok" placeholder="Nama Anggota 1" value="{{$profil->anggota_1}}">
+                            <input type="text" class="form-control" id="nama_anggota_kelompok" name="nama_anggota_kelompok" placeholder="Nama Anggota 1" value="{{isset($inventor->anggota_1)?$inventor->anggota_1:''}}">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="nama_anggota_kelompok_2" name="nama_anggota_kelompok_2" placeholder="Nama Anggota 2" value="{{$profil->anggota_2}}">
+                            <input type="text" class="form-control" id="nama_anggota_kelompok_2" name="nama_anggota_kelompok_2" placeholder="Nama Anggota 2" value="{{isset($inventor->anggota_2)?$inventor->anggota_2:''}}">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="nama_anggota_kelompok_3" name="nama_anggota_kelompok_3" placeholder="Nama Anggota 3" value="{{$profil->anggota_3}}">
+                            <input type="text" class="form-control" id="nama_anggota_kelompok_3" name="nama_anggota_kelompok_3" placeholder="Nama Anggota 3" value="{{isset($inventor->anggota_3)?$inventor->anggota_3:''}}">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="nama_anggota_kelompok_4" name="nama_anggota_kelompok_4" placeholder="Nama Anggota 4" value="{{$profil->anggota_4}}">
+                            <input type="text" class="form-control" id="nama_anggota_kelompok_4" name="nama_anggota_kelompok_4" placeholder="Nama Anggota 4" value="{{isset($inventor->anggota_4)?$inventor->anggota_4:''}}">
                         </div>
                         <div class="form-group">
                             <label for="karya_usul_kelompok">Karya Yang Diusulkan</label>
-                            <input type="text" class="form-control" id="karya_usul_kelompok" name="karya_usul_kelompok" value="{{$profil->temuan}}" readonly>
+                            <input type="text" class="form-control" id="karya_usul_kelompok" name="karya_usul_kelompok" value="{{isset($inventor->temuan)?$inventor->temuan:''}}">
                         </div>
                         <div class="form-group">
                             <label for="temuan_baru_kelompok">Temuan Baru</label>
-                            <input type="text" class="form-control" id="temuan_baru_kelompok" name="temuan_baru_kelompok" value="{{$profil->judul}}">
+                            <input type="text" class="form-control" id="temuan_baru_kelompok" name="temuan_baru_kelompok" value="{{isset($inventor->judul)?$inventor->judul:''}}">
                         </div>
                         <div class="form-group">
                             <label for="pengembangan_dari_kelompok">Pengembangan dari</label>
-                            <input type="text" class="form-control" id="pengembangan_dari_kelompok" name="pengembangan_dari_kelompok" value="{{$profil->pengembangan}}">
+                            <input type="text" class="form-control" id="pengembangan_dari_kelompok" name="pengembangan_dari_kelompok" value="{{isset($inventor->pengembangan)?$inventor->pengembangan:''}}">
                         </div>
                     </div>
                 </div>
                 <button type="submit" value="draft-profil" name="submit" class="btn btn-primary">Simpan Daft</button> <a href="#" class="btn btn-secondary" id="lanjutkan_pendaftaran">Lanjutkan</a> 
             {{--  </form>  --}}
         </div>
-@endsection

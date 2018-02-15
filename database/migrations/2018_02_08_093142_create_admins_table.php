@@ -26,6 +26,20 @@ class CreateAdminsTable extends Migration
             
             $table->timestamps();
         });
+        Schema::create('profils', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('admin_id')->unsigned();
+            $table->foreign('admin_id')->references('id')->on('admins');
+            $table->string('nama');
+            $table->string('alamat');
+            $table->string('kabupaten');
+            $table->string('no_telp');
+            $table->string('email');
+            $table->string('judul');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -35,6 +49,7 @@ class CreateAdminsTable extends Migration
      */
     public function down()
     {
+        Schema::drop('profils');
         Schema::drop('admins');
     }
 }

@@ -7,4 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Admin extends Model
 {
     //
+    public function profil(){
+        return $this->hasMany('App\Profil');
+    }
 }

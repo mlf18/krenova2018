@@ -21,19 +21,6 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-
-        Schema::create('profils', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->string('nama');
-            $table->string('alamat');
-            $table->string('kabupaten');
-            $table->string('no_telp');
-            $table->string('email');
-            $table->string('judul');
-            $table->timestamps();
-        });
     }
 
     /**
@@ -44,6 +31,5 @@ class CreateUsersTable extends Migration
     public function down()
     {
         Schema::drop('users');
-        Schema::drop('profils');
     }
 }

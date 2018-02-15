@@ -1,11 +1,12 @@
 @extends('layouts.inventor')
+
 @section('content')
     <div class="content-wrapper">
         <div class="container-fluid">
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item active">
-                    <a href="{{url('/profil')}}">Dashboard Inventor</a>
+                    <a href="{{url('/inventor')}}">Dashboard Inventor</a>
                 </li>
             </ol>
             <div class="row">
@@ -17,7 +18,7 @@
                             </div>
                             <div class="mr-5">Profil Inventor</div>
                         </div>
-                        <a class="card-footer text-white clearfix small z-1" href="{{url('profil/create')}}">
+                        <a class="card-footer text-white clearfix small z-1" href="{{url('inventor/create')}}">
                             <span class="float-left">Lihat Profil</span>
                             <span class="float-right">
                             <i class="fa fa-angle-right"></i>

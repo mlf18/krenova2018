@@ -31,20 +31,20 @@
                                         {{session('error')}}
                                     </div>
                                 @endif
-                            <form method="post" action="{{url('/profil/'.$profil->id)}}">
+                            <form method="post" action="{{url('/inventor/'.$profil->id)}}">
                                 {{ csrf_field() }}
                                 {{ method_field('PATCH') }}
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Nama/Kelompok</label>
-                                    <input type="text" class="form-control" id="Nama" name="nama" value="{{$profil->nama}}" {{!$profil->edit ? 'readonly':''}}/>
+                                    <input type="text" class="form-control" id="Nama" name="nama" value="{{$profil->nama}}" {{$profil->nama!='' ? 'readonly':''}}/>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Alamat</label>
-                                    <input type="text" class="form-control" id="Alamat" name="alamat" value="{{$profil->alamat}}" {{!$profil->edit ? 'readonly':''}}/>
+                                    <input type="text" class="form-control" id="Alamat" name="alamat" value="{{$profil->alamat}}" {{$profil->alamat!='' ? 'readonly':''}}/>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Kabupaten/Kota</label>
-                                    <select class="form-control" id="Kabupaten" name="kabupaten" {{!$profil->edit ? 'readonly':''}}>
+                                    <select class="form-control" id="Kabupaten" name="kabupaten" {{$profil->kabupaten != '' ? 'readonly':''}}>
                                         <option value="banjarnegara" {{$profil->kabupaten=='banjarnegara'?'selected':''}}>Kabupaten Banjarnegara</option>
                                         <option value="banyumas" {{$profil->kabupaten=='banyumas'?'selected':''}}>Kabupaten Banyumas</option>
                                         <option value="batang" {{$profil->kabupaten=='batang'?'selected':''}} >Kabupaten Batang</option>
@@ -87,17 +87,17 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">No Telepon/HP</label>
-                                    <input type="text" class="form-control" id="no_telp" name="no_telp" value="{{$profil->no_telp}}" {{!$profil->edit ? 'readonly':''}}/>
+                                    <input type="text" class="form-control" id="no_telp" name="no_telp" value="{{$profil->no_telp}}" {{$profil->no_telp !='' ? 'readonly':''}}/>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Alamat Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" value="{{$profil->email}}" {{!$profil->edit ? 'readonly':''}}/>
+                                    <input type="email" class="form-control" id="email" name="email" value="{{$profil->email}}" {{$profil->email !='' ? 'readonly':''}}/>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Judul Temuan/Inovasi</label>
-                                    <input type="text" class="form-control" id="inovasi" name="inovasi" value="{{$profil->temuan}}" {{!$profil->edit ? 'readonly':''}}/>
+                                    <input type="text" class="form-control" id="inovasi" name="inovasi" value="{{$profil->judul}}" {{$profil->judul != '' ? 'readonly':''}}/>
                                 </div>
-                                <button type="submit" class="btn btn-primary {{!$profil->edit ? 'disabled':''}}" disabled="{{!$profil->edit ? 'disabled':''}}">Simpan</button>
+                                <button type="submit" class="btn btn-primary" >Simpan</button>
                             </form>
                         </div>
                     </div>

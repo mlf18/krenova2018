@@ -1,5 +1,3 @@
-@extends ('layouts.inventor')
-@section ('content')
 <div class="tab-pane fade" id="kuesioner" role="tabpanel" aria-labelledby="kuesioner-tab">
         {{--  <form>  --}}
             <br>
@@ -97,4 +95,3 @@
             <button type="submit" value="draft-kuesioner" name="submit" class="btn btn-primary">Simpan Daft</button> <a href="#" id="lanjutkan_kuesioner" class="btn btn-secondary">Lanjutkan</a> 
         {{--  </form>  --}}
     </div>
-@endsection

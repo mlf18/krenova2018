@@ -42,6 +42,9 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         //
+        $profil = new Profil();
+        $user = new User();
+
     }
 
     /**

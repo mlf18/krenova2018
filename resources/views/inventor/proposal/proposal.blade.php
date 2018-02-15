@@ -1,11 +1,9 @@
-@extends ('layouts.inventor')
-@section ('content')
 <div class="tab-pane fade" id="proposal" role="tabpanel" aria-labelledby="proposal-tab">
     
         {{--  <form>  --}}
             <div class="form-group">
                 <label for="proposal_judul">Judul</label>
-                <input type="text" class="form-control" id="proposal_judul" name="proposal_judul" value="{{$profil->temuan}}" disabled>
+                <input type="text" class="form-control" id="proposal_judul" name="proposal_judul" value="{{$profil->judul}}" disabled>
             </div>
             <div class="form-group">
                 <label for="proposal_abstrak">Abstrak / Ringkasan Eksekutif</label>
@@ -65,7 +63,7 @@
             </div>
             <div class="form-group">
                 <label for="proposal_pendukung">Data Dukung Kelengkapan Proposal atau Profil Temuan/Inovasi <small>(Contoh : Uji Lab, Sertifikasi, Legalitas Usaha, Berita media cetak/elektronik dan lain-lain)</small><br><small>File pdf, maksimal 10 mb</small></label>
-                <input type="file" class="form-control-file" id="proposal_pendukung" name="proposal_pendukung">
+                <input type="file" class="form-control-file" id="proposal_pendukung" name="proposal_pendukung" required>
             </div>
             <div class="form-group">
                 {{--  <label for="no_hp"></label>  --}}
@@ -94,4 +92,3 @@
             <button type="submit" value="draft-proposal" name="submit" class="btn btn-primary">Simpan Draft</button> <button type="submit" class="btn btn-success">Kirim</button> 
         {{--  </form>  --}}
     </div>
-@endsection
