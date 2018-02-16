@@ -40,21 +40,23 @@
                           </tr>
                         </tfoot>
                         <tbody>
-                          @foreach($inventors as $inventor)
+                          @foreach($p as $pro)
+                          @if(isset($pro->profil))
                           <tr>
                             <td>1</td>
-          				  <td>{{$inventor->nama}}</td>
-                            <td>{{$inventor->alamat}}</td>
-                            <td>pekerjaan</td>
-                            <td>{{$inventor->no_telp}}</td>
-                            <td>{{$inventor->email}}</td>
-                    <td><a href="{{url('admin/editprofil/'.$inventor->id)}}" class="btn btn-primary">Edit</a> 
-                      <form method="post" action="{{url('/admin/deletesprofil/'.$inventor->id)}}" enctype="multipart/form-data">
+                    <td>{{$pro->profil->nama}}</td>
+                    <td>{{$pro->profil->alamat}}</td>
+                            <td>{{isset($pro->profil->inventor)?$pro->profil->inventor->pekerjaan:''}}</td>
+                            <td>{{$pro->profil->no_telp}}</td>
+                            <td>{{$pro->profil->email}}</td>
+                    <td><a href="{{url('admin/editprofil/'.$pro->profil->id)}}" class="btn btn-primary">Edit</a> 
+                      <form method="post" action="{{url('/admin/deletesprofil/'.$pro->profil->id)}}" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <button type="submit" class="btn btn-danger">Hapus</button>
                       </form>
                     </td>
                     </tr>
+                    @endif
                     @endforeach
                   </tbody>
                 </table>

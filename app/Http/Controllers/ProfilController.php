@@ -16,6 +16,8 @@ class ProfilController extends Controller
     public function index()
     {
         //
+        $profil=Profil::find(1);
+        $inventor=$profil->inventor;
     }
 
     /**

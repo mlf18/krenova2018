@@ -20,8 +20,18 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $inventor=Auth::user()->admin->profil;
-        return view('admin.index')->with(['inventors'=>$inventor]);
+        $p=User::with(['profil.inventor'=>function ($query) {
+            $query->where('id', '=', 1);
+        
+        }])->get();
+        // foreach ($p as $pro){
+        //     print ($pro->profil);
+        //     if(isset($pro->profil->inventor)){
+                
+        //     }
+        // }
+        // return ([$p]);
+        return view('admin.index')->with(['p'=>$p]);
     }
     public function editinventor($id){
         $profil=Profil::find($id);
