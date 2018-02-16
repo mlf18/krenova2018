@@ -29,7 +29,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Data Invetor">
-          <a class="nav-link" href="{{route('inventor.create') }}">
+          <a class="nav-link" href="{{url('inventor/editprofil') }}">
             <i class="fa fa-fw fa-user"></i>
             <span class="nav-link-text">Profil Inventor</span>
           </a>

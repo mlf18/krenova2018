@@ -1,5 +1,4 @@
 @extends('layouts.inventor')
-
 @section('content')
     <div class="content-wrapper">
         <div class="container-fluid">
@@ -18,7 +17,7 @@
                             </div>
                             <div class="mr-5">Profil Inventor</div>
                         </div>
-                        <a class="card-footer text-white clearfix small z-1" href="{{url('inventor/'.$profil.'/edit')}}">
+                        <a class="card-footer text-white clearfix small z-1" href="{{url('inventor/editprofil') }}">
                             <span class="float-left">Lihat Profil</span>
                             <span class="float-right">
                             <i class="fa fa-angle-right"></i>

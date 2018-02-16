@@ -50,7 +50,7 @@ class InventorController extends Controller
         $profil->email=$request->input('email');
         $profil->no_telp=$request->input('no_telp');
         $profil->judul=$request->input('inovasi');
-        $profil->admin_id=Auth::user()->id;
+        $profil->admin_id=Auth::user()->admin->id;
         $user->name=$request->input('username');
         $user->password=bcrypt($request->input('password'));
         $user->email=$request->input('email');
@@ -76,7 +76,7 @@ class InventorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
         //
         $profil=Auth::user()->profil;

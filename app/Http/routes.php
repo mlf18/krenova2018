@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('index');
 });
 Route::get('/admin/editprofil/{id}', 'AdminController@editinventor');
+Route::get('/inventor/editprofil', 'InventorController@edit');
 Route::patch('/admin/updateprofil/{id}', 'AdminController@updateprofil');
 Route::post('/admin/deletesprofil/{id}', 'AdminController@deletesprofil');
 Route::resources([
