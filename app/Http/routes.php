@@ -27,7 +27,8 @@ Route::resources([
     'role' => 'RoleController',
     'proposal' => 'ProposalController',
     'user' => 'UserController',
-    'adminkuesioner' => 'AdminkuesionerController'
+    'adminkuesioner' => 'AdminkuesionerController',
+    'berita' => 'ArticleController'
   ]);
   
 Route::group([

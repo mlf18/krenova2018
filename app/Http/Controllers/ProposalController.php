@@ -21,7 +21,7 @@ class ProposalController extends Controller
      */
     public function index()
     {
-        return redirect('proposal/create');
+        return view('proposal.index');
         // return view('inventor.map.index');
     }
     public function get($filename){

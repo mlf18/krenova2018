@@ -17,6 +17,7 @@ class CreateArticlesTable extends Migration
             $table->string('judul');
             $table->string('isi');
             $table->string('kategori');
+            $table->string('gambar');
             $table->timestamps();
         });
     }
