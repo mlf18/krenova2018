@@ -39,7 +39,7 @@
 										<tr>
 											<td>{{$a->id}}</td>
 											<td>{{$a->judul}}</td>
-											<td><img src="{{url('file/')}}" width="200px" height="200px" class="img-thumbnail"></td>
+											<td><img src="{{url('file/'.$a->gambar)}}" width="200px" height="200px" class="img-thumbnail"></td>
                                             <td>{{$a->kategori}}</td>
                                             <form method="post" action="{{url('berita/'.$a->id)}}">
                                                 {{csrf_field()}}

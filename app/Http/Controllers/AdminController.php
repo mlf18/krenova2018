@@ -43,6 +43,7 @@ class AdminController extends Controller
         $profil->nama=$request->input('nama');
         $profil->alamat=$request->input('alamat');
         $profil->email=$request->input('email');
+        $profil->kabupaten=$request->input('kabupaten');
         $profil->no_telp=$request->input('no_telp');
         $profil->judul=$request->input('inovasi');
         $user->email=$request->input('email');

@@ -46,9 +46,9 @@ class ArticleController extends Controller
         $article->judul=$request->input('judul');
         $article->isi=$request->input('isi_berita');
         $article->kategori=$request->input('kategori');
-        // $fileName="berita_".time().".jpeg";
-        // $request->file('gambar')->move('file/',$fileName);
-        // $article->gambar=$fileName;
+        $fileName="berita_".time().".jpeg";
+        $request->file('gambar')->move('file/',$fileName);
+        $article->gambar=$fileName;
         $article->save();
         return redirect('berita');
     }
@@ -91,9 +91,9 @@ class ArticleController extends Controller
         $article->judul=$request->input('judul');
         $article->isi=$request->input('isi_berita');
         $article->kategori=$request->input('kategori');
-        // $fileName="berita_".time().".jpeg";
-        // $request->file('gambar')->move('file/',$fileName);
-        // $article->gambar=$fileName;
+        $fileName="berita_".time().".jpeg";
+        $request->file('gambar')->move('file/',$fileName);
+        $article->gambar=$fileName;
         $article->save();
         return redirect('berita');
     }

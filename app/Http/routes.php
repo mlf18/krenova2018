@@ -14,6 +14,15 @@
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/', 'HomeController@index');
+Route::get('/artikel', 'HomeController@artikel');
+Route::get('/panduan', 'HomeController@panduan');
+Route::get('/direktori', 'HomeController@direktori');
+Route::get('/polling', 'HomeController@polling');
+Route::get('/rekap', 'HomeController@rekap');
+Route::get('/daftar-pemenang', 'HomeController@daftarpemenang');
+Route::get('/tentang', 'HomeController@tentang');
+Route::get('/pendaftaran', 'HomeController@pendaftaran');
 Route::get('/admin/editprofil/{id}', 'AdminController@editinventor');
 Route::get('/inventor/editprofil', 'InventorController@edit');
 Route::patch('/admin/updateprofil/{id}', 'AdminController@updateprofil');
