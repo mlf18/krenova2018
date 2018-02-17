@@ -37,6 +37,10 @@ class HomeController extends Controller
         ];
         return view('content.artikel.index')->with(['navbar'=>$nav,'articles'=>$articles]);
     }
+    public function showArtikel($id){
+        $article = Article::find($id);
+        return view('content.artikel.show')->with('article',$article);
+    }
     public function panduan(){
         $nav=[
             '','','','',''

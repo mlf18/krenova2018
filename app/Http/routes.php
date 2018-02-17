@@ -23,6 +23,7 @@ Route::get('/rekap', 'HomeController@rekap');
 Route::get('/daftar-pemenang', 'HomeController@daftarpemenang');
 Route::get('/tentang', 'HomeController@tentang');
 Route::get('/pendaftaran', 'HomeController@pendaftaran');
+Route::get('/artikel/{id}/show','HomeController@showArtikel');
 Route::get('/admin/editprofil/{id}', 'AdminController@editinventor');
 Route::get('/inventor/editprofil', 'InventorController@edit');
 Route::patch('/admin/updateprofil/{id}', 'AdminController@updateprofil');
