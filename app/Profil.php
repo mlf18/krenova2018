@@ -17,9 +17,9 @@ class Profil extends Model
         return $this->hasOne('App\Inventor');
     }
     public function proposal(){
-        return $this->hasOne('App\Inventor');
+        return $this->hasOne('App\Proposal');
     }
     public function kuesinventor(){
-        return $this->hasOne('App\Inventor');
+        return $this->hasOne('App\Kuesinventor');
     }
 }

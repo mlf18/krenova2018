@@ -63,7 +63,7 @@
             </div>
             <div class="form-group">
                 <label for="proposal_pendukung">Data Dukung Kelengkapan Proposal atau Profil Temuan/Inovasi <small>(Contoh : Uji Lab, Sertifikasi, Legalitas Usaha, Berita media cetak/elektronik dan lain-lain)</small><br><small>File pdf, maksimal 10 mb</small></label>
-                <input type="file" class="form-control-file" id="proposal_pendukung" name="proposal_pendukung" required>
+                <input type="file" class="form-control-file" id="proposal_pendukung" name="proposal_pendukung">
             </div>
             <div class="form-group">
                 {{--  <label for="no_hp"></label>  --}}
@@ -89,6 +89,6 @@
                 <label for="proposal_foto_ktp">Foto KTP/Kartu Pelajar (Maksimal size 1 mb) <br><small>File pdf/jpg</small> </label>
                 <input type="file" class="form-control-file" id="proposal_foto_ktp" name="proposal_foto_ktp">
             </div>
-            <button type="submit" value="draft-proposal" name="submit" class="btn btn-primary">Simpan Draft</button> <button type="submit" class="btn btn-success">Kirim</button> 
+            <button type="submit" value="draft" name="submit" class="btn btn-primary">Simpan Draft</button> <button type="submit" class="btn btn-success">Kirim</button> 
         {{--  </form>  --}}
     </div>

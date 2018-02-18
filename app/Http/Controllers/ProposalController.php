@@ -11,6 +11,7 @@ use App\Admin;
 use App\Inventor;
 use App\Kuesinventor;
 use App\Profil;
+use App\Draftinventor;
 use Auth;
 class ProposalController extends Controller
 {
@@ -56,6 +57,17 @@ class ProposalController extends Controller
         }
         return view('inventor.proposal.create')->with(['profil'=>$profil,'admin'=>$admin,'kuesinventor'=>$kuesinventor,'proposal'=>$proposal,'inventor'=>$inventor]);
     }
+    public function draft($id){
+        $profil=Auth::user()->profil;
+        $admin=$profil->admin;
+        $draft = Draftinventor::find($id);
+        if (isset($draft)){
+            return view('inventor.proposal.draft')->with(['draft'=>$draft,'profil'=>$profil,'admin'=>$admin]);
+        }else{
+            return redirect('proposal/create');
+        }
+        
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -64,8 +76,13 @@ class ProposalController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->input('submit')!='draft'){
         $profil=Auth::user()->profil;
-        $inventor=new Inventor();
+        if (isset($profil->inventor)){
+            $inventor=$profil->inventor;
+        }else{
+            $inventor=new Inventor();
+        }
         $inventor->kategori=$request->input('bidang_perorangan');
         $inventor->nama=$profil->nama;
         $inventor->alamat=$profil->alamat;
@@ -86,13 +103,17 @@ class ProposalController extends Controller
         $inventor->judul=$request->input('temuan_baru_kelompok');
         $inventor->pengembangan=$request->input('pengembangan_dari_kelompok');
         $inventor->profil_id=$profil->id;
-        $inventor->save();
+        // $inventor->save();
         // if($request->input('submit')=="draft-profil"){
         //     $temuan->draft=1;
         // }else{
         //     $temuan->draft=0;
         // }
-        $temuan= new Kuesinventor();
+        if (isset($profil->kuesinventor)){
+            $temuan=$profil->kuesinventor;
+        }else{
+            $temuan = new Kuesinventor();
+        }
         $temuan->temuan_asli=$request->input('temuan_asli');
         $temuan->waktu_produksi=$request->input('waktu_produksi');
         $temuan->sudah_ada=$request->input('orisinalitas_alat');
@@ -115,7 +136,11 @@ class ProposalController extends Controller
         $temuan->orientasi=$request->input('komersil_kebutuhan');
         $temuan->profil_id=$profil->id;
         $temuan->save();
-        $proposal= new Proposal();
+        if (isset($profil->proposal)){
+            $proposal=$profil->proposal;
+        }else{
+            $proposal = new Proposal();
+        }
         $proposal->abstrak=$request->input('proposal_abstrak');
         $proposal->latar_belakang=$request->input('proposal_latar_belakang');
         $proposal->maksud=$request->input('proposal_maksud_tujuan');
@@ -130,77 +155,247 @@ class ProposalController extends Controller
         // }else{
         //     $proposal->draft=0;
         // }
-        $fileName='proposal_file_1_'.time().'.jpeg';
-        $request->file('proposal_file_1')->move('file/', $fileName);
-        $proposal->foto1_name=$fileName;
+        if($request->hasFile('proposal_file_1')){
+            $fileName='proposal_file_1_'.time().'.'.$request->file('proposal_file_1')->getClientOriginalExtension();
+            $request->file('proposal_file_1')->move('file/', $fileName);
+            $proposal->foto1_name=$fileName;
+        }else{
+            $proposal->foto1_name='';
+        }
         if($request->hasFile('proposal_file_2')){
-            $fileName='proposal_file_2'.time().'.jpeg';
+            $fileName='proposal_file_2'.time().'.'.$request->file('proposal_file_2')->getClientOriginalExtension();
             $request->file('proposal_file_2')->move('file/', $fileName);
             $proposal->foto2_name=$fileName;
         }else{
             $proposal->foto2_name='';
         }
         if($request->hasFile('proposal_file_3')){
-            $fileName='proposal_file_3_'.time().'.jpeg';
+            $fileName='proposal_file_3_'.time().'.'.$request->file('proposal_file_3')->getClientOriginalExtension();
             $request->file('proposal_file_3')->move('file/', $fileName);
             $proposal->foto3_name=$fileName;
         }else{
             $proposal->foto3_name='';
         }
         if($request->hasFile('proposal_file_4')){
-            $fileName='proposal_file_4'.time().'.jpeg';
+            $fileName='proposal_file_4'.time().'.'.$request->file('proposal_file_4')->getClientOriginalExtension();
             $request->file('proposal_file_4')->move('file/', $fileName);
             $proposal->foto4_name=$fileName;
         }else{
             $proposal->foto4_name='';
         }
-        $fileName='proposal_surat_'.time().'.jpeg';
-        $request->file('proposal_surat')->move('file/', $fileName);
-        $proposal->suratpengantar_name=$fileName;
+        if($request->hasFile('proposal_surat')){
+            $fileName='proposal_surat_'.time().'.'.$request->file('proposal_surat')->getClientOriginalExtension();
+            $request->file('proposal_surat')->move('file/', $fileName);
+            $proposal->suratpengantar_name=$fileName;
+        }else{
+            $proposal->suratpengantar_name='';
+        }
         // $fileName=time().'.jpeg';
         // $request->file('proposal_pendukung')->move('file/', $fileName);
         // $proposal->spk_name=$fileName;
-        $fileName='proposal_pendukung_'.time().'.jpeg';
-        $request->file('proposal_pendukung')->move('file/', $fileName);
-        $proposal->lampiran1_name=$fileName;
+        if($request->hasFile('proposal_pendukung')){
+            $fileName='proposal_pendukung_'.time().'.'.$request->file('proposal_pendukung')->getClientOriginalExtension();
+            $request->file('proposal_pendukung')->move('file/', $fileName);
+            $proposal->lampiran1_name=$fileName;
+        }else{
+            $proposal->lampiran1_name='';
+        }
         if($request->hasFile('proposal_daftar_riwayat_1')){
-            $fileName='proposal_daftar_riwayat_2_'.time().'.pdf';
+            $fileName='proposal_daftar_riwayat_2_'.'.'.time().$request->file('proposal_daftar_riwayat_1')->getClientOriginalExtension();
             $request->file('proposal_daftar_riwayat_1')->move('file/', $fileName);
             $proposal->lampiran2_name=$fileName;
         }else{
             $proposal->lampiran2_name='';
         }
         if($request->hasFile('proposal_daftar_riwayat_2')){
-            $fileName='proposal_daftar_riwayat_2_'.time().'.pdf';
+            $fileName='proposal_daftar_riwayat_2_'.'.'.time().$request->file('proposal_daftar_riwayat_2')->getClientOriginalExtension();
             $request->file('proposal_daftar_riwayat_2')->move('file/', $fileName);
             $proposal->lampiran3_name=$fileName;
         }else{
             $proposal->lampiran3_name='';
         }
         if($request->hasFile('proposal_daftar_riwayat_3')){
-            $fileName='proposal_daftar_riwayat_3_'.time().'.pdf';
+            $fileName='proposal_daftar_riwayat_3_'.'.'.time().$request->file('proposal_daftar_riwayat_3')->getClientOriginalExtension();
             $request->file('proposal_daftar_riwayat_3')->move('file/', $fileName);
             $proposal->lampiran4_name=$fileName;
         }else{
             $proposal->lampiran4_name='';
         }
         if($request->hasFile('proposal_daftar_riwayat_4')){
-            $fileName='proposal_daftar_riwayat_4_'.time().'.pdf';
+            $fileName='proposal_daftar_riwayat_4_'.'.'.time().$request->file('proposal_daftar_riwayat_4')->getClientOriginalExtension();
             $request->file('proposal_daftar_riwayat_4')->move('file/', $fileName);
             $proposal->lampiran5_name=$fileName;
         }else{
             $proposal->lampiran5_name='';
         }
-        $fileName='proposal_daftar_riwayat_hidup_'.time().'.jpeg';
-        $request->file('proposal_daftar_riwayat_hidup')->move('file/', $fileName);
-        $proposal->riwayathidup_name=$fileName;
-        $fileName='proposal_foto_ktp_'.time().'.jpeg';
-        $request->file('proposal_foto_ktp')->move('file/', $fileName);
-        $proposal->ktp_name=$fileName;
+        if($request->hasFile('proposal_daftar_riwayat_hidup')){
+            $fileName='proposal_daftar_riwayat_hidup_'.'.'.time().$request->file('proposal_daftar_riwayat_hidup')->getClientOriginalExtension();
+            $request->file('proposal_daftar_riwayat_hidup')->move('file/', $fileName);
+            $proposal->riwayathidup_name=$fileName;
+        }else{
+            $proposal->riwayathidup_name='';
+        }
+        if($request->hasFile('proposal_foto_ktp')){
+            $fileName='proposal_foto_ktp_'.time().'.'.$request->file('proposal_foto_ktp')->getClientOriginalExtension();
+            $request->file('proposal_foto_ktp')->move('file/', $fileName);
+            $proposal->ktp_name=$fileName;
+        }else{
+            $proposal->ktp_name='';
+        }
         $proposal->status=1;
         $proposal->profil_id=$profil->id;
+        $draft=Draftinventor::where('profil_id','=',$proposal->profil_id);
         $proposal->save();
-        return redirect('/proposal/create')->with('success', 'Saved');
+        $draft->delete();
+        }else{
+        $profil=Auth::user()->profil;
+        $draft = new Draftinventor();
+        $draft->kategori=$request->input('bidang_perorangan');
+        $draft->nama=$profil->nama;
+        $draft->alamat=$profil->alamat;
+        $draft->pekerjaan=$request->input('pekerjaan_perorangan');
+        $draft->email=$profil->email;
+        $draft->no_telp=$profil->no_telp;
+        $draft->kategori_kelompok=$request->input('bidang_kelompok');
+        $draft->nama_kelompok=$request->input('nama_kelompok');
+        $draft->nama_ketua=$request->input('ketua_kelompok');
+        $draft->alamat_kelompok=$request->input('alamat_kelompok');
+        $draft->email_kelompok=$request->input('alamat_email_kelompok');
+        $draft->no_telp_kelompok=$request->input('no_hp_kelompok');
+        $draft->anggota_1=$request->input('nama_anggota_kelompok');
+        $draft->anggota_2=$request->input('nama_anggota_kelompok_2');
+        $draft->anggota_3=$request->input('nama_anggota_kelompok_3');
+        $draft->anggota_4=$request->input('nama_anggota_kelompok_4');
+        $draft->temuan=$request->input('karya_usul_kelompok');
+        $draft->judul=$request->input('temuan_baru_kelompok');
+        $draft->pengembangan=$request->input('pengembangan_dari_kelompok');
+        $draft->temuan_asli=$request->input('temuan_asli');
+        $draft->waktu_produksi=$request->input('waktu_produksi');
+        $draft->sudah_ada=$request->input('orisinalitas_alat');
+        $draft->ide_orang=$request->input('orisinalitas_ide');
+        $draft->komersial=$request->input('implementasi_komersil');
+        $draft->komersial_pihak=$request->input('implementasi_pihak');
+        $draft->asal_usul=$request->input('implementasi_asal_usul');
+        $draft->penarapan=$request->input('penerapan_temuan');
+        $draft->pelaku_penerapan=$request->input('penerapan_pelaku');
+        $draft->cakupan_penerapan=$request->input('penerapan_cukupan');
+        $draft->bahan_lokal=$request->input('bahan_baku_lokal');
+        $draft->kapasitas_produksi=$request->input('manfaat_produktifitas');
+        $draft->tenaga_kerja=$request->input('manfaat_lapangan_kerja');
+        $draft->prospek_tempat=$request->input('komersil_dimana');
+        $draft->prospek_cara=$request->input('komersil_cara');
+        $draft->biaya_produksi=$request->input('komersil_biaya');
+        $draft->omset=$request->input('komersil_omset');
+        $draft->asal_bahan=$request->input('komersil_bahan_baku');
+        $draft->quantity_bahan=$request->input('komersil_banyak');
+        $draft->orientasi=$request->input('komersil_kebutuhan');
+        $draft->profil_id=$profil->id;
+        $draft->abstrak=$request->input('proposal_abstrak');
+        $draft->latar_belakang=$request->input('proposal_latar_belakang');
+        $draft->maksud=$request->input('proposal_maksud_tujuan');
+        $draft->manfaat=$request->input('proposal_manfaat');
+        $draft->spek_teknik=$request->input('proposal_spesifikasi');
+        $draft->keunggulan=$request->input('proposal_keunggulan');
+        $draft->penerapan=$request->input('proposal_penerapan');
+        $draft->biaya_produksi=$request->input('proposal_perhitungan');
+        $draft->prospek_bisnis=$request->input('proposal_prospek');
+        // if($request->input('submit')=="draft-proposal"){
+        //     $draft->draft=1;
+        // }else{
+        //     $draft->draft=0;
+        // }
+        if($request->hasFile('proposal_file_1')){
+            $fileName='proposal_file_1_'.time().'.'.$request->file('proposal_file_1')->getClientOriginalExtension();
+            $request->file('proposal_file_1')->move('file/', $fileName);
+            $draft->foto1_name=$fileName;
+        }else{
+            $draft->foto1_name='';
+        }
+        if($request->hasFile('proposal_file_2')){
+            $fileName='proposal_file_2'.time().'.'.$request->file('proposal_file_2')->getClientOriginalExtension();
+            $request->file('proposal_file_2')->move('file/', $fileName);
+            $draft->foto2_name=$fileName;
+        }else{
+            $draft->foto2_name='';
+        }
+        if($request->hasFile('proposal_file_3')){
+            $fileName='proposal_file_3_'.time().'.'.$request->file('proposal_file_3')->getClientOriginalExtension();
+            $request->file('proposal_file_3')->move('file/', $fileName);
+            $draft->foto3_name=$fileName;
+        }else{
+            $draft->foto3_name='';
+        }
+        if($request->hasFile('proposal_file_4')){
+            $fileName='proposal_file_4'.time().'.'.$request->file('proposal_file_4')->getClientOriginalExtension();
+            $request->file('proposal_file_4')->move('file/', $fileName);
+            $draft->foto4_name=$fileName;
+        }else{
+            $draft->foto4_name='';
+        }
+        if($request->hasFile('proposal_surat')){
+            $fileName='proposal_surat_'.time().'.'.$request->file('proposal_surat')->getClientOriginalExtension();
+            $request->file('proposal_surat')->move('file/', $fileName);
+            $draft->suratpengantar_name=$fileName;
+        }else{
+            $draft->suratpengantar_name='';
+        }
+        // $fileName=time().'.jpeg';
+        // $request->file('proposal_pendukung')->move('file/', $fileName);
+        // $draft->spk_name=$fileName;
+        if($request->hasFile('proposal_pendukung')){
+            $fileName='proposal_pendukung_'.time().'.'.$request->file('proposal_pendukung')->getClientOriginalExtension();
+            $request->file('proposal_pendukung')->move('file/', $fileName);
+            $draft->lampiran1_name=$fileName;
+        }else{
+            $draft->lampiran1_name='';
+        }
+        if($request->hasFile('proposal_daftar_riwayat_1')){
+            $fileName='proposal_daftar_riwayat_2_'.time().'.'.$request->file('proposal_daftar_riwayat_1')->getClientOriginalExtension();
+            $request->file('proposal_daftar_riwayat_1')->move('file/', $fileName);
+            $draft->lampiran2_name=$fileName;
+        }else{
+            $draft->lampiran2_name='';
+        }
+        if($request->hasFile('proposal_daftar_riwayat_2')){
+            $fileName='proposal_daftar_riwayat_2_'.time().'.'.$request->file('proposal_daftar_riwayat_2')->getClientOriginalExtension();
+            $request->file('proposal_daftar_riwayat_2')->move('file/', $fileName);
+            $draft->lampiran3_name=$fileName;
+        }else{
+            $draft->lampiran3_name='';
+        }
+        if($request->hasFile('proposal_daftar_riwayat_3')){
+            $fileName='proposal_daftar_riwayat_3_'.time().'.'.$request->file('proposal_daftar_riwayat_3')->getClientOriginalExtension();
+            $request->file('proposal_daftar_riwayat_3')->move('file/', $fileName);
+            $draft->lampiran4_name=$fileName;
+        }else{
+            $draft->lampiran4_name='';
+        }
+        if($request->hasFile('proposal_daftar_riwayat_4')){
+            $fileName='proposal_daftar_riwayat_4_'.time().'.'.$request->file('proposal_daftar_riwayat_4')->getClientOriginalExtension();
+            $request->file('proposal_daftar_riwayat_4')->move('file/', $fileName);
+            $draft->lampiran5_name=$fileName;
+        }else{
+            $draft->lampiran5_name='';
+        }
+        if($request->hasFile('proposal_daftar_riwayat_hidup')){
+            $fileName='proposal_daftar_riwayat_hidup_'.time().'.'.$request->file('proposal_daftar_riwayat_hidup')->getClientOriginalExtension();
+            $request->file('proposal_daftar_riwayat_hidup')->move('file/', $fileName);
+            $draft->riwayathidup_name=$fileName;
+        }else{
+            $draft->riwayathidup_name='';
+        }
+        if($request->hasFile('proposal_foto_ktp')){
+            $fileName='proposal_foto_ktp_'.time().'.'.$request->file('proposal_foto_ktp')->getClientOriginalExtension();
+            $request->file('proposal_foto_ktp')->move('file/', $fileName);
+            $draft->ktp_name=$fileName;
+        }else{
+            $draft->ktp_name='';
+        }        
+        $draft->profil_id=$profil->id;
+        $draft->save();
+        }
+        return ([$draft]);
+        // return redirect('/proposal/create')->with('success', 'Saved');
     }
     /**
      * Display the specified resource.

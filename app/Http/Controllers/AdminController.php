@@ -8,7 +8,8 @@ use Auth;
 use App\Inventor;
 use App\Profil;
 use App\User;
-
+use App\Kuesadmin;
+use App\Draftadmin;
 use App\Http\Requests;
 
 class AdminController extends Controller
@@ -18,20 +19,22 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(){
+        $admin=Auth::user()->admin;
+        $drafts=Draftadmin::where('admin_id','=',$admin->id)->get();
+        return view('admin.index')->with('drafts',$drafts);
+    }
+    public function draft($id){
+        $draft=Draftadmin::find($id);
+        return view('admin.draft')->with('draft',$draft);
+    }
+    public function datainventor()
     {
         $p=User::with(['profil.inventor'=>function ($query) {
             $query->where('id', '=', 1);
         
         }])->get();
-        // foreach ($p as $pro){
-        //     print ($pro->profil);
-        //     if(isset($pro->profil->inventor)){
-                
-        //     }
-        // }
-        // return ([$p]);
-        return view('admin.index')->with(['p'=>$p]);
+        return view('admin.datainventor')->with(['p'=>$p]);
     }
     public function editinventor($id){
         $profil=Profil::find($id);

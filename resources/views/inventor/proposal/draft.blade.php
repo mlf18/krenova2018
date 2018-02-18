@@ -110,15 +110,15 @@
                                                 <div class="form-group">
                                                     <label for="bidang_perorangan">Bidang</label>
                                                     <select class="form-control" id="bidang_perorangan" name="bidang_perorangan">
-                                                        <option value="agribisnis dan pangan">Agribisnis dan pangan</option>
-                                                        <option value="energi">Energi</option>
-                                                        <option value="kehutanan dan lingkungan hidup">Kehutanan dan lingkungan hidup</option>
-                                                        <option value="kelautan dan perikanan">Kelautan dan perikanan</option>
-                                                        <option value="kesehatan, obat-obatan dan kosmetika">Kesehatan, obat-obatan dan kosmetika</option>
-                                                        <option value="pendidikan">Pendidikan</option>
-                                                        <option value="rekayasa teknologi dan manufaktur">Rekayasa Teknologi dan manufaktur</option>
-                                                        <option value="kerajinan dan industri rumah tangga">Kerajinan dan industri rumah tangga</option>
-                                                        <option value="sosial">Sosial</option>
+                                                        <option value="agribisnis dan pangan" {{isset($draft->kategori) ? $draft->kategori=="agribisnis dan pangan"?"selected":'':''}}>Agribisnis dan pangan</option>
+                                                        <option value="energi" {{isset($draft->kategori)?$draft->kategori=="energi"?"selected":'':''}}>Energi</option>
+                                                        <option value="kehutanan dan lingkungan hidup" {{isset($draft->kategori)?$draft->kategori=="kehutanan dan lingkungan hidup"?"selected":'':''}}>Kehutanan dan lingkungan hidup</option>
+                                                        <option value="kelautan dan perikanan" {{isset($draft->kategori)?$draft->kategori=="kelautan dan perikanan"?"selected":'':''}}>Kelautan dan perikanan</option>
+                                                        <option value="kesehatan, obat-obatan dan kosmetika" {{isset($draft->kategori)?$draft->kategori=="kesehatan, obat-obatan dan kosmetika"?"selected":'':''}}>Kesehatan, obat-obatan dan kosmetika</option>
+                                                        <option value="pendidikan" {{isset($draft->kategori)?$draft->kategori=="pendidikan"?"selected":'':''}}>Pendidikan</option>
+                                                        <option value="rekayasa teknologi dan manufaktur" {{isset($draft->kategori)?$draft->kategori=="rekayasa teknologi dan manufaktur"?"selected":'':''}}>Rekayasa Teknologi dan manufaktur</option>
+                                                        <option value="kerajinan dan industri rumah tangga" {{isset($draft->kategori)?$draft->kategori=="kerajinan dan industri rumah tangga"?"selected":'':''}}>Kerajinan dan industri rumah tangga</option>
+                                                        <option value="sosial" {{isset($draft->kategori)?$draft->kategori=="sosial"?"selected":'':''}}>Sosial</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
@@ -127,7 +127,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="pekerjaan_perorangan">Pekerjaan</label>
-                                                    <input type="text" class="form-control" id="pekerjaan_perorangan" name="pekerjaan_perorangan" value="{{isset($inventor->pekerjaan)?$inventor->pekerjaan:''}}">
+                                                    <input type="text" class="form-control" id="pekerjaan_perorangan" name="pekerjaan_perorangan" value="{{isset($draft->pekerjaan)?$draft->pekerjaan:''}}">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="no_telp_perorangan">No Telepon/HP</label>
@@ -144,61 +144,59 @@
                                                 <div class="form-group">
                                                     <label for="bidang_kelompok">Bidang</label>
                                                     <select class="form-control" id="bidang_kelompok" name="bidang_kelompok">
-                                                        <option value="agribisnis dan pangan">Agribisnis dan pangan</option>
-                                                        <option value="energi">Energi</option>
-                                                        <option value="kehutanan dan lingkungan hidup">Kehutanan dan lingkungan hidup</option>
-                                                        <option value="kelautan dan perikanan">Kelautan dan perikanan</option>
-                                                        <option value="kesehatan, obat-obatan dan kosmetika">Kesehatan, obat-obatan dan kosmetika</option>
-                                                        <option value="pendidikan">Pendidikan</option>
-                                                        <option value="rekayasa teknologi dan manufaktur">Rekayasa Teknologi dan manufaktur</option>
-                                                        <option value="kerajinan dan industri rumah tangga">Kerajinan dan industri rumah tangga</option>
-                                                        <option value="sosial">Sosial</option>
+                                                        <option value="agribisnis dan pangan" {{isset($draft->kategori)?$draft->kategori=="agribisnis dan pangan"?"selected":'':''}}>Agribisnis dan pangan</option>
+                                                        <option value="energi" {{isset($draft->kategori)?$draft->kategori=="energi"?"selected":'':''}}>Energi</option>
+                                                        <option value="kehutanan dan lingkungan hidup" {{isset($draft->kategori)?$draft->kategori=="kehutanan dan lingkungan hidup"?"selected":'':''}}>Kehutanan dan lingkungan hidup</option>
+                                                        <option value="kelautan dan perikanan" {{isset($draft->kategori)?$draft->kategori=="kelautan dan perikanan"?"selected":'':''}}>Kelautan dan perikanan</option>
+                                                        <option value="kesehatan, obat-obatan dan kosmetika" {{isset($draft->kategori)?$draft->kategori=="kesehatan, obat-obatan dan kosmetika"?"selected":'':''}}>Kesehatan, obat-obatan dan kosmetika</option>
+                                                        <option value="pendidikan" {{isset($draft->kategori)?$draft->kategori=="pendidikan"?"selected":'':''}}>Pendidikan</option>
+                                                        <option value="rekayasa teknologi dan manufaktur" {{isset($draft->kategori)?$draft->kategori=="rekayasa teknologi dan manufaktur"?"selected":'':''}}>Rekayasa Teknologi dan manufaktur</option>
+                                                        <option value="kerajinan dan industri rumah tangga" {{isset($draft->kategori)?$draft->kategori=="kerajinan dan industri rumah tangga"?"selected":'':''}}>Kerajinan dan industri rumah tangga</option>
+                                                        <option value="sosial" {{isset($draft->kategori)?$draft->kategori=="sosial"?"selected":'':''}}>Sosial</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="nama_kelompok">Nama Kelompok</label>
-                                                    <input type="text" class="form-control" id="nama_kelompok" name="nama_kelompok">
+                                                    <input type="text" class="form-control" id="nama_kelompok" name="nama_kelompok" value="{{isset($draft->nama_kelompok)?$draft->nama_kelompok:''}}">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="ketua_kelompok">Nama Ketua Kelompok</label>
-                                                    <input type="text" class="form-control" id="ketua_kelompok" name="ketua_kelompok">
+                                                    <input type="text" class="form-control" id="ketua_kelompok" name="ketua_kelompok" value="{{isset($draft->nama_ketua)?$draft->nama_ketua:''}}">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="alamat_kelompok">Alamat Kelompok</label>
-                                                    <input type="text" class="form-control" id="alamat_kelompok" name="alamat_kelompok" value="{{isset($inventor->alamat_kelompok)?$inventor->alamat_kelompok:''}}">
+                                                    <input type="text" class="form-control" id="alamat_kelompok" name="alamat_kelompok" value="{{isset($draft->alamat_kelompok)?$draft->alamat_kelompok:''}}">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="no_hp_kelompok">No Telepon/HP Ketua</label>
-                                                    <input type="text" class="form-control" id="no_hp_kelompok" name="no_hp_kelompok" value="{{isset($inventor->no_telp_kelompok)?$inventor->no_telp_kelompok:''}}">
+                                                    <input type="text" class="form-control" id="no_hp_kelompok" name="no_hp_kelompok" value="{{isset($draft->no_telp_kelompok)?$draft->no_telp_kelompok:''}}">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="alamat_email_kelompok">Alamat E-mail</label>
-                                                    <input type="e-mail" class="form-control" id="alamat_email_kelompok" name="alamat_email_kelompok" value="{{isset($inventor->email_kelompok)?$inventor->email_kelompok:''}}">
+                                                    <input type="e-mail" class="form-control" id="alamat_email_kelompok" name="alamat_email_kelompok" value="{{isset($draft->email_kelompok)?$draft->email_kelompok:''}}">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="nama_anggota_kelompok">Nama Anggota</label>
-                                                    <input type="text" class="form-control" id="nama_anggota_kelompok" name="nama_anggota_kelompok" placeholder="Nama Anggota 1" value="{{isset($inventor->anggota_1)?$inventor->anggota_1:''}}">
+                                                    <input type="text" class="form-control" id="nama_anggota_kelompok" name="nama_anggota_kelompok" placeholder="Nama Anggota 1" value="{{isset($draft->anggota_1)?$draft->anggota_1:''}}">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" id="nama_anggota_kelompok_2" name="nama_anggota_kelompok_2" placeholder="Nama Anggota 2" value="{{isset($inventor->anggota_2)?$inventor->anggota_2:''}}">
+                                                    <input type="text" class="form-control" id="nama_anggota_kelompok_2" name="nama_anggota_kelompok_2" placeholder="Nama Anggota 2" value="{{isset($draft->anggota_2)?$draft->anggota_2:''}}">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" id="nama_anggota_kelompok_3" name="nama_anggota_kelompok_3" placeholder="Nama Anggota 3" value="{{isset($inventor->anggota_3)?$inventor->anggota_3:''}}">
+                                                    <input type="text" class="form-control" id="nama_anggota_kelompok_3" name="nama_anggota_kelompok_3" placeholder="Nama Anggota 3" value="{{isset($draft->anggota_3)?$draft->anggota_3:''}}">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" id="nama_anggota_kelompok_4" name="nama_anggota_kelompok_4" placeholder="Nama Anggota 4" value="{{isset($inventor->anggota_4)?$inventor->anggota_4:''}}">
-                                                </div>
                                                 <div class="form-group">
                                                     <label for="karya_usul_kelompok">Karya Yang Diusulkan</label>
-                                                    <input type="text" class="form-control" id="karya_usul_kelompok" name="karya_usul_kelompok" value="{{isset($inventor->temuan)?$inventor->temuan:''}}">
+                                                    <input type="text" class="form-control" id="karya_usul_kelompok" name="karya_usul_kelompok" value="{{isset($draft->anggota_4)?$draft->anggota_4:''}}">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="temuan_baru_kelompok">Temuan Baru</label>
-                                                    <input type="text" class="form-control" id="temuan_baru_kelompok" name="temuan_baru_kelompok" value="{{isset($inventor->judul)?$inventor->judul:''}}">
+                                                    <input type="text" class="form-control" id="temuan_baru_kelompok" name="temuan_baru_kelompok" value="{{isset($draft->judul)?$draft->judul:''}}">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="pengembangan_dari_kelompok">Pengembangan dari</label>
-                                                    <input type="text" class="form-control" id="pengembangan_dari_kelompok" name="pengembangan_dari_kelompok" value="{{isset($inventor->pengembangan)?$inventor->pengembangan:''}}">
+                                                    <input type="text" class="form-control" id="pengembangan_dari_kelompok" name="pengembangan_dari_kelompok" value="{{isset($draft->pengembangan)?$draft->pengembangan:''}}">
                                                 </div>
                                             </div>
                                         </div>
@@ -211,93 +209,93 @@
                                         <p>A. ORISINALITAS DAN KEPIONIRAN</p>
                                         <div class="form-group">
                                             <label for="temuan_asli">- Apakah temuan ini merupakan hasil temuan asli? Jelaskan</label>
-                                            <input type="text" class="form-control" id="temuan_asli" name="temuan_asli">
+                                            <input type="text" class="form-control" id="temuan_asli" name="temuan_asli" value="{{isset($draft->temuan_asli)?$draft->temuan_asli:''}}">
                                         </div>
                                         <div class="form-group">
                                             <label for="waktu_produksi"> - Kapan temuan ini diproduksi (bulan, tahun)?</label>
-                                            <input type="text" class="form-control" id="waktu_produksi" name="waktu_produksi">
+                                            <input type="text" class="form-control" id="waktu_produksi" name="waktu_produksi" value="{{isset($draft->waktu_produksi)?$draft->waktu_produksi:''}}">
                                         </div>
                                         <div class="form-group">
                                             <label for="orisinalitas_alat"> - Apakah sudah ada alat sejenis yang sudah ada? Jelaskan</label>
-                                            <input type="text" class="form-control" id="orisinalitas_alat" name="orisinalitas_alat">
+                                            <input type="text" class="form-control" id="orisinalitas_alat" name="orisinalitas_alat" value="{{isset($draft->sudah_ada)?$draft->sudah_ada:''}}">
                                         </div>
                                         <div class="form-group">
                                             <label for="orisinalitas_ide">- Apakah temuan saudara/i merupakan hasil pengembangan ide orang lain? Jelaskan</label>
-                                            <input type="text" class="form-control" id="orisinalitas_ide" name="orisinalitas_ide">
+                                            <input type="text" class="form-control" id="orisinalitas_ide" name="orisinalitas_ide" value="{{isset($draft->ide_orang)?$draft->ide_orang:''}}">
                                         </div>
                                         <p>B. PENERAPAN <br>a. Implementasi </p>
                                         <div class="form-group">
                                             <label for="implementasi_komersil">- Apakah sudah dipersiapkan untuk komersial/dijual ? </label>
-                                            <input type="text" class="form-control" id="implementasi_komersil" name="implementasi_komersil">
+                                            <input type="text" class="form-control" id="implementasi_komersil" name="implementasi_komersil" value="{{isset($draft->komersial)?$draft->komersial:''}}">
                                         </div>
                                         <div class="form-group">
                                             <label for="implementasi_pihak">- Dimana, oleh siapa ?</label>
-                                            <input type="text" class="form-control" id="implementasi_pihak" name="implementasi_pihak">
+                                            <input type="text" class="form-control" id="implementasi_pihak" name="implementasi_pihak" value="{{isset($draft->komersial_pihak)?$draft->komersial_pihak:''}}">
                                         </div>
                                         <div class="form-group">
                                             <label for="implementasi_asal_usul">- Fasilitas dan Lomba apa saja yang pernah diterima/diikuti? Jelaskan </label>
-                                            <input type="text" class="form-control" id="implementasi_asal_usul" name="implementasi_asal_usul">
+                                            <input type="text" class="form-control" id="implementasi_asal_usul" name="implementasi_asal_usul" value="{{isset($draft->asal_usul)?$draft->asal_usul:''}}">
                                         </div>
                                         <p>b. Penerapan</p>	
                                         <div class="form-group">
                                             <label for="penerapan_temuan"> -  Apakah temuan saudara sudah diterapkan?</label>
-                                            <input type="text" class="form-control" id="penerapan_temuan" name="penerapan_temuan">
+                                            <input type="text" class="form-control" id="penerapan_temuan" name="penerapan_temuan" value="{{isset($draft->penarapan)?$draft->penarapan:''}}">
                                         </div>
                                         <div class="form-group">
                                             <label for="penerapan_pelaku">- Dimana/oleh siapa ?</label>
-                                            <input type="text" class="form-control" id="penerapan_pelaku" name="penerapan_pelaku">
+                                            <input type="text" class="form-control" id="penerapan_pelaku" name="penerapan_pelaku" value="{{isset($draft->pelaku_penerapan)?$draft->pelaku_penerapan:''}}">
                                         </div>
                                         <div class="form-group">
                                             <label for="penerapan_cakupan">- Cakupan/Skala Penerapan (Kab/Kota, Provinsi, Nasional)?</label>
-                                            <input type="text" class="form-control" id="penerapan_cukupan" name="penerapan_cukupan">
+                                            <input type="text" class="form-control" id="penerapan_cukupan" name="penerapan_cukupan" value="{{isset($draft->cakupan_penerapan)?$draft->cakupan_penerapan:''}}">
                                         </div>
                                         <p>C. MANFAAT<br>a. Penyerahan Bahan Baku Lokal</p>
                                         <div class="form-group">
                                             <label for="bahan_baku_lokal">- Berapa persen penggunaan bahan baku lokal ? </label>
-                                            <input type="text" class="form-control" id="manfaat_bahan_baku_lokal" name="bahan_baku_lokal" placeholder="Jelakan nilai, volume, waktu, tenaga, dsb" >
+                                            <input type="text" class="form-control" id="manfaat_bahan_baku_lokal" name="bahan_baku_lokal" placeholder="Jelakan nilai, volume, waktu, tenaga, dsb" value="{{isset($draft->bahan_lokal)?$draft->bahan_lokal:''}}">
                                         </div>
                                         <p> b. Peningkatan proses/kapasitas/produktivitas ?</p>
                                         <div class="form-group">
                                             <label for="manfaat_produktifitas">- Seberapa besar produktivitas yang dihasilkan ?</label>
-                                            <input type="text" class="form-control" id="manfaat_produktifitas" name="manfaat_produktifitas">
+                                            <input type="text" class="form-control" id="manfaat_produktifitas" name="manfaat_produktifitas" value="{{isset($draft->kapasitas_produksi)?$draft->kapasitas_produksi:''}}">
                                         </div>
                                         <p>c. Penyerapan Tenaga Kerja</p>
                                         <div class="form-group">
                                             <label for="manfaat_lapangan_kerja">- Berapa banyak tenaga kerja yang diserap dalam penciptaan/penerapan produk (lapangan kerja) ?</label>
-                                            <input type="text" class="form-control" id="manfaat_lapangan_kerja" name="manfaat_lapangan_kerja">
+                                            <input type="text" class="form-control" id="manfaat_lapangan_kerja" name="manfaat_lapangan_kerja" value="{{isset($draft->tenaga_kerja)?$draft->tenaga_kerja:''}}">
                                         </div>
                                         <p>D. KEBERLANGSUNGAN/KOMERSIALISASI<br>
                                             a. Prospek Bisnis / Komersial
                                         </p>
                                         <div class="form-group">
                                             <label for="komersil_dimana">- Oleh siapa dan dimana?</label>
-                                            <input type="text" class="form-control" id="komersil_dimana" name="komersil_dimana">
+                                            <input type="text" class="form-control" id="komersil_dimana" name="komersil_dimana" value="{{isset($draft->prospek_tempat)?$draft->prospek_tempat:''}}">
                                         </div>
                                         <div class="form-group">
                                             <label for="komersil_cara"> - Bagaimana Caranya ?</label>
-                                            <input type="text" class="form-control" id="komersil_cara" name="komersil_cara" >
+                                            <input type="text" class="form-control" id="komersil_cara" name="komersil_cara" value="{{isset($draft->prospek_cara)?$draft->prospek_cara:''}}">
                                         </div>
                                         <div class="form-group">
                                             <label for="komersil_biaya"> - Perhitungan Biaya Produksi</label>
-                                            <input type="text" class="form-control" id="komersil_biaya" name="komersil_biaya">
+                                            <input type="text" class="form-control" id="komersil_biaya" name="komersil_biaya" value="{{isset($draft->biaya_produksi)?$draft->biaya_produksi:''}}">
                                         </div>
                                         <div class="form-group">
                                             <label for="komersil_omset">- Berapa Omset Penjualan ?</label>
-                                            <input type="text" class="form-control" id="komersil_omset" name="komersil_omset">
+                                            <input type="text" class="form-control" id="komersil_omset" name="komersil_omset" value="{{isset($draft->omset)?$draft->omset:''}}">
                                         </div>
                                         <p>b. Ketersediaan Bahan Baku</p>
                                         <div class="form-group">
                                             <label for="komersil_bahan_baku">- Dimana bahan baku pembuatan temuan ini bisa saudara/i diperoleh (diakses)?, jelaskan </label>
-                                            <input type="text" class="form-control" id="komersil_bahan_baku" name="komersil_bahan_baku">
+                                            <input type="text" class="form-control" id="komersil_bahan_baku" name="komersil_bahan_baku" value="{{isset($draft->asal_bahan)?$draft->asal_bahan:''}}">
                                         </div>
                                         <div class="form-group">
                                             <label for="komersil_banyak">- Banyak tidaknya ketersediaan bahan baku untuk produksi temuan/inovasi?, jelaskan </label>
-                                            <input type="text" class="form-control" id="komersil_banyak" name="komersil_banyak">
+                                            <input type="text" class="form-control" id="komersil_banyak" name="komersil_banyak" value="{{isset($draft->quantity_bahan)?$draft->quantity_bahan:''}}">
                                         </div>
                                         <p>c. Berorientasi Kebutuhan Masa Depan</p>
                                         <div class="form-group">
                                             <label for="komersil_kebutuhan">- Menjawab kebutuhan teknologi bagi masyarakat (saat ini & ke depan), jelaskan </label>
-                                            <input type="text" class="form-control" id="komersil_kebutuhan" name="komersil_kebutuhan">
+                                            <input type="text" class="form-control" id="komersil_kebutuhan" name="komersil_kebutuhan" value="{{isset($draft->orientasi)?$draft->orientasi:''}}">
                                         </div>
                                         <button type="submit" value="draft" name="submit" class="btn btn-primary">Simpan Daft</button> <a href="#" id="lanjutkan_kuesioner" class="btn btn-secondary">Lanjutkan</a> 
                                     {{--  </form>  --}}
@@ -311,39 +309,39 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="proposal_abstrak">Abstrak / Ringkasan Eksekutif</label>
-                                                <textarea class="form-control" id="proposal_abstrak" name="proposal_abstrak" rows="3" placeholder="Tuliskan Abstrak maksimal 500 kata"></textarea>
+                                                <textarea class="form-control" id="proposal_abstrak" name="proposal_abstrak" rows="3" placeholder="Tuliskan Abstrak maksimal 500 kata">{{isset($draft->abstrak)?$draft->abstrak:''}}</textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="proposal_latar_belakang">Latar Belakang</label>
-                                                <textarea class="form-control" id="proposal_latar_belakang" name="proposal_latar_belakang" rows="3" ></textarea>
+                                                <textarea class="form-control" id="proposal_latar_belakang" name="proposal_latar_belakang" rows="3" >{{isset($draft->latar_belakang)?$draft->latar_belakang:''}}</textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="proposal_maksud_tujuan">Maksud dan Tujuan</label>
-                                                <textarea class="form-control" id="proposal_maksud_tujuan" name="proposal_maksud_tujuan" rows="3" ></textarea>
+                                                <textarea class="form-control" id="proposal_maksud_tujuan" name="proposal_maksud_tujuan" rows="3" >{{isset($draft->maksud)?$draft->maksud:''}}</textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="proposal_manfaat">Manfaat</label>
-                                            <textarea class="form-control" id="proposal_manfaat" name="proposal_manfaat" rows="3" ></textarea>
+                                            <textarea class="form-control" id="proposal_manfaat" name="proposal_manfaat" rows="3" >{{isset($draft->manfaat)?$draft->manfaat:''}}</textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="proposal_spesifikasi">Spesifikasi Teknis</label>
-                                            <textarea class="form-control" id="proposal_spesifikasi" name="proposal_spesifikasi" rows="3" ></textarea>
+                                            <textarea class="form-control" id="proposal_spesifikasi" name="proposal_spesifikasi" rows="3" >{{isset($draft->spek_teknik)?$draft->spek_teknik:''}}</textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="proposal_keunggulan">Keunggulan dan Perbedaan bila dibandingkan  dengan penemuan sejenis sebelumnya </label>
-                                            <textarea class="form-control" id="proposal_keunggulan" name="proposal_keunggulan" rows="3" ></textarea>
+                                            <textarea class="form-control" id="proposal_keunggulan" name="proposal_keunggulan" rows="3" >{{isset($draft->keunggulan)?$draft->keunggulan:''}}</textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="proposal_penerapan">Penerapan pada Masyarakat dan Dunia Industri</label>
-                                            <textarea class="form-control" id="proposal_penerapan" name="proposal_penerapan" rows="3" ></textarea>
+                                            <textarea class="form-control" id="proposal_penerapan" name="proposal_penerapan" rows="3" >{{isset($draft->penerapan)?$draft->penerapan:''}}</textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="proposal_perhitungan">Perhitungan Biaya Produksi Temuan/Inovasi</label>
-                                            <textarea class="form-control" id="proposal_perhitungan" name="proposal_perhitungan" rows="3" ></textarea>
+                                            <textarea class="form-control" id="proposal_perhitungan" name="proposal_perhitungan" rows="3" >{{isset($draft->biaya_produksi)?$draft->biaya_produksi:''}}</textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="proposal_prospek">Prospek Bisnis / Komersialisasi</label>
-                                            <textarea class="form-control" id="proposal_prospek" name="proposal_prospek" rows="3"></textarea>
+                                            <textarea class="form-control" id="proposal_prospek" name="proposal_prospek" rows="3">{{isset($draft->prospek_bisnis)?$draft->prospek_bisnis:''}}</textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="proposal_file_1">Foto Produk (Maksimal size 1 mb) <br><small>File pdf/jpg</small></label>
@@ -395,7 +393,7 @@
                                         </div>
                                         <button type="submit" value="draft" name="submit" class="btn btn-primary">Simpan Draft</button> <button type="submit" class="btn btn-success">Kirim</button> 
                                     {{--  </form>  --}}
-                                </div>
+                                </div>     
                             </div>
                         </form>
                         </div>

@@ -127,11 +127,11 @@
                         </div>
                         <div class="form-group">
                             <label for="nama_kelompok">Nama Kelompok</label>
-                            <input type="text" class="form-control" id="nama_kelompok" name="nama_kelompok">
+                            <input type="text" class="form-control" id="nama_kelompok" name="nama_kelompok" value="">
                         </div>
                         <div class="form-group">
                             <label for="ketua_kelompok">Nama Ketua Kelompok</label>
-                            <input type="text" class="form-control" id="ketua_kelompok" name="ketua_kelompok">
+                            <input type="text" class="form-control" id="ketua_kelompok" name="ketua_kelompok" value="">
                         </div>
                         <div class="form-group">
                             <label for="alamat_kelompok">Alamat Kelompok</label>
@@ -156,8 +156,6 @@
                             <input type="text" class="form-control" id="nama_anggota_kelompok_3" name="nama_anggota_kelompok_3" placeholder="Nama Anggota 3" value="{{isset($inventor->anggota_3)?$inventor->anggota_3:''}}">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="nama_anggota_kelompok_4" name="nama_anggota_kelompok_4" placeholder="Nama Anggota 4" value="{{isset($inventor->anggota_4)?$inventor->anggota_4:''}}">
-                        </div>
                         <div class="form-group">
                             <label for="karya_usul_kelompok">Karya Yang Diusulkan</label>
                             <input type="text" class="form-control" id="karya_usul_kelompok" name="karya_usul_kelompok" value="{{isset($inventor->temuan)?$inventor->temuan:''}}">
@@ -172,6 +170,6 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" value="draft-profil" name="submit" class="btn btn-primary">Simpan Daft</button> <a href="#" class="btn btn-secondary" id="lanjutkan_pendaftaran">Lanjutkan</a> 
+                <button type="submit" value="draft" name="submit" class="btn btn-primary">Simpan Daft</button> <a href="#" class="btn btn-secondary" id="lanjutkan_pendaftaran">Lanjutkan</a> 
             {{--  </form>  --}}
         </div>

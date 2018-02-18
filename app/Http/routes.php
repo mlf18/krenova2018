@@ -28,6 +28,8 @@ Route::get('/admin/editprofil/{id}', 'AdminController@editinventor');
 Route::get('/inventor/editprofil', 'InventorController@edit');
 Route::patch('/admin/updateprofil/{id}', 'AdminController@updateprofil');
 Route::post('/admin/deletesprofil/{id}', 'AdminController@deletesprofil');
+Route::get('/inventor/draft/{id}','ProposalController@draft');
+Route::get('/admin/draft/{id}','AdminController@draft');
 Route::resources([
     'superadmin' => 'SuperAdminController',
     'inventor' => 'InventorController',

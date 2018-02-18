@@ -9,6 +9,7 @@ use Auth;
 use App\Profil;
 
 use App\User;
+use App\Draftinventor;
 
 use App\Http\Requests;
 
@@ -23,7 +24,8 @@ class InventorController extends Controller
     {
         //
         $profil=Auth::user()->id;
-        return view('inventor.profil.index')->with(['profil'=>$profil]);
+        $drafts=Draftinventor::where('profil_id','=',Auth::user()->profil->id)->get();
+        return view('inventor.profil.index')->with(['profil'=>$profil,'drafts'=>$drafts]);
     }
     /**
      * Show the form for creating a new resource.
@@ -34,6 +36,10 @@ class InventorController extends Controller
     {
         $inventor=Auth::user()->profil;
         return view('inventor.profil.create')->with(['profil'=>$inventor]);
+    }
+    public function draft($id){
+        $draft=Draftinventor::find($id);
+        return view('inventor.proposal.draft')->with('draft',$draft);
     }
     /**
      * Store a newly created resource in storage.
