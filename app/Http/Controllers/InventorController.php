@@ -114,7 +114,7 @@ class InventorController extends Controller
         $profil->email=$request->input('email');
         $profil->judul=$request->input('inovasi');
         $profil->save();
-        return redirect('inventor/create')->with('success','Data Telah Diubah');
+        return redirect('inventor')->with('success','Data Telah Diubah');
     }
     /**
      * Remove the specified resource from storage.

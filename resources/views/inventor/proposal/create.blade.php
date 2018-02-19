@@ -202,7 +202,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" value="draft" name="submit" class="btn btn-primary">Simpan Daft</button> <a href="#" class="btn btn-secondary" id="lanjutkan_pendaftaran">Lanjutkan</a> 
+                                        <button type="submit" value="draft" name="submit" class="btn btn-primary">Simpan Daft</button> <button type="submit" value="cetak" name="submit" class="btn btn-default" disabled>Cetak</button> <a href="#" class="btn btn-secondary" id="lanjutkan_pendaftaran">Lanjutkan</a> 
                                     {{--  </form>  --}}
                                 </div>
                                 <div class="tab-pane fade" id="kuesioner" role="tabpanel" aria-labelledby="kuesioner-tab">
@@ -299,7 +299,7 @@
                                             <label for="komersil_kebutuhan">- Menjawab kebutuhan teknologi bagi masyarakat (saat ini & ke depan), jelaskan </label>
                                             <input type="text" class="form-control" id="komersil_kebutuhan" name="komersil_kebutuhan">
                                         </div>
-                                        <button type="submit" value="draft" name="submit" class="btn btn-primary">Simpan Daft</button> <a href="#" id="lanjutkan_kuesioner" class="btn btn-secondary">Lanjutkan</a> 
+                                        <button type="submit" value="draft" name="submit" class="btn btn-primary">Simpan Daft</button> <button type="submit" value="cetak" name="submit" class="btn btn-default" disabled>Cetak</button> <a href="#" id="lanjutkan_kuesioner" class="btn btn-secondary">Lanjutkan</a> 
                                     {{--  </form>  --}}
                                 </div>
                                 <div class="tab-pane fade" id="proposal" role="tabpanel" aria-labelledby="proposal-tab">
@@ -393,7 +393,7 @@
                                             <label for="proposal_foto_ktp">Foto KTP/Kartu Pelajar (Maksimal size 1 mb) <br><small>File pdf/jpg</small> </label>
                                             <input type="file" class="form-control-file" id="proposal_foto_ktp" name="proposal_foto_ktp">
                                         </div>
-                                        <button type="submit" value="draft" name="submit" class="btn btn-primary">Simpan Draft</button> <button type="submit" class="btn btn-success">Kirim</button> 
+                                        <button type="submit" value="draft" name="submit" class="btn btn-primary">Simpan Draft</button> <button type="submit" value="cetak" name="submit" class="btn btn-default" disabled>Cetak</button> <button type="submit" class="btn btn-success">Kirim</button> 
                                     {{--  </form>  --}}
                                 </div>
                             </div>

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.inventor')
 @section('content')
     <div class="content-wrapper">
         <div class="container-fluid">
@@ -33,7 +33,7 @@
                             </div>
                             <div class="mr-5"><b>Pengajuan Proposal</b></div>
                         </div>
-                        <a href="proposal.html" class="card-footer text-white clearfix small z-1" href="#">
+                        <a href="{{url('/proposal/create')}}" class="card-footer text-white clearfix small z-1" href="#">
                             <span class="float-left">Lihat Status</span>
                             <span class="float-right">
                             <i class="fa fa-angle-right"></i>
