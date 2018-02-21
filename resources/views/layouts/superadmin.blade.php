@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>SB Admin Krenova</title>
+  <title>KRENOVA JAWA TENGAH</title>
   <!-- Bootstrap core CSS-->
 
   <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -88,7 +88,7 @@
           </a>
           <ul class="sidenav-second-level collapse" id="info">
             <li>
-              <a href="berita.html">Berita</a>
+              <a href="{{url('berita')}}">Berita</a>
             </li>
       <li>
               <a href="panduhan.html">Panduan</a>
@@ -148,7 +148,6 @@
       <!-- Icon Cards-->
 
       <!-- Area Chart Example-->
-
       @yield('content')
 
       </div>
@@ -179,25 +178,23 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <a class="btn btn-primary" href="{{ url('/logout') }}">Logout</a>
           </div>
         </div>
       </div>
     </div>
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <!-- Page level plugin JavaScript-->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-    <script src="vendor/datatables/jquery.dataTables.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+    <script src="{{asset('vendor/datatables/jquery.dataTables.js') }}"></script>
+    <script src="{{asset('vendor/datatables/dataTables.bootstrap4.js') }}"></script>
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin.min.js"></script>
+    <script src="{{asset('js/sb-admin.min.js') }}"></script>
     <!-- Custom scripts for this page-->
-    <script src="js/sb-admin-datatables.min.js"></script>
-    <script src="js/sb-admin-charts.min.js"></script>
+    <script src="{{asset('js/sb-admin-datatables.min.js') }}"></script>
   </div>
 </body>
 

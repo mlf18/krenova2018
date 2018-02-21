@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
+use App\Profil;
+use App\Proposal;
 class SuperadminController extends Controller
 {
     /**
@@ -15,7 +16,42 @@ class SuperadminController extends Controller
      */
     public function index()
     {
-        return view ('superadmin.index');
+        $profils=Proposal::where('status', '1')->get();
+
+        $counts=Proposal::where('status', '1')->count();
+
+        $unaproves=Proposal::where('status', '0')->count();
+        // return ($profils);
+        $profilunapproves=Proposal::where('status', '0')->get();
+        return view ('superadmin.index', compact('profils', 'counts','unaproves','profilunapproves'));
+    }
+
+    public function listproposal()
+    {
+        $profils = Profil::all();
+
+        return view('superadmin.proposal.listproposal', compact('profils')); 
+    }
+
+    public function publishproposal()
+    {
+        $profils = Profil::all();
+
+        return view('superadmin.publish.publishproposal', compact('profils')); 
+    }
+
+    public function vote()
+    {
+        $profils = Profil::all();
+
+        return view('superadmin.vote.vote', compact('profils')); 
+    }
+
+    public function pemenang()
+    {
+        $profils = Profil::all();
+
+        return view('superadmin.pemenanglomba.pemenang', compact('profils')); 
     }
 
     /**

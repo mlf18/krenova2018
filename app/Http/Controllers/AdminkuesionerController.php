@@ -164,7 +164,7 @@ class AdminkuesionerController extends Controller
         $adminkues->nama_kabupaten=Auth::user()->admin->kabupaten;
         $adminkues->save();
         }
-        return redirect('admin');
+        return redirect('admin')->with('success','Tersimpan');
     }
 
     /**

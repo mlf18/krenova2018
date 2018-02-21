@@ -21,7 +21,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Dashboard Kota Semarang</a>
+    <a class="navbar-brand" href="{{url('admin')}}">Dashboard Kota Semarang</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -34,19 +34,19 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Unggah Surat Pengantar">
-          <a class="nav-link" href="{{route('admin.create')}}">
+          <a class="nav-link" href="{{url('pengantarkota/create')}}">
             <i class="fa fa-fw fa-file"></i>
             <span class="nav-link-text">Unggah Surat Pengantar</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Data Invetor">
-          <a class="nav-link" href="datainventor.html">
+          <a class="nav-link" href="{{url('admin/datainventor')}}">
             <i class="fa fa-fw fa-file"></i>
             <span class="nav-link-text">Data Inventor</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Review Proposal">
-          <a class="nav-link" href="{{route('proposal.index')}}">
+          <a class="nav-link" href="{{url('admin/reviewproposal')}}">
             <i class="fa fa-fw fa-check"></i>
             <span class="nav-link-text">Review Proposal</span>
           </a>
@@ -82,7 +82,6 @@
       </ul>
     </div>
   </nav>
-
   @yield('content')
 
   
@@ -91,7 +90,7 @@
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small>Copyright © Krenova 2018</small>
+          <small>Copyright © UPP IPTEKIN BAPPEDA PROVINSI JAWA TENGAH 2018</small>
         </div>
       </div>
     </footer>
@@ -112,7 +111,7 @@
           <div class="modal-body">Apakah anda ingin keluar ?</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-            <a class="btn btn-primary" href="login.html">Keluar</a>
+            <a class="btn btn-primary" href="{{ url('/logout') }}">Keluar</a>
           </div>
         </div>
       </div>
@@ -128,7 +127,31 @@
     <script src="{{asset('js/sb-admin.min.js') }}"></script>
     <!-- Custom scripts for this page-->
     <script src="{{asset('js/sb-admin-datatables.min.js') }}"></script>
-    
+    <script>
+        $(document).ready(function(){
+          $("#lanjutkan_pendaftaran").click(function(){
+              $("#pendaftaran").removeClass("active");
+              $("#pendaftaran").removeClass("show");
+              $("#pendaftaran-tab").removeClass("active");
+              $("#pendaftaran-tab").removeClass("show");
+              $("#kuesioner-tab").addClass("active");
+              $("#kuesioner-tab").addClass("show");
+              $("#kuesioner").addClass("active");
+              $("#kuesioner").addClass("show");
+          });
+          $("#lanjutkan_kuesioner").click(function(){
+            $("#kuesioner-tab").removeClass("active");
+            $("#kuesioner-tab").removeClass("show");
+            $("#kuesioner").removeClass("active");
+            $("#kuesioner").removeClass("show");
+            $("#proposal").addClass("active");
+            $("#proposal").addClass("show");
+            $("#proposal-tab").addClass("active");
+            $("#proposal-tab").addClass("show");
+            
+        });
+      });
+      </script>
   </div>
 </body>
 

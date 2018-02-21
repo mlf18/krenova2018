@@ -10,11 +10,17 @@ use App\Profil;
 
 use App\User;
 use App\Draftinventor;
-
+use App\Proposal;
+use App\Kuesinventor;
+use App\Inventor;
 use App\Http\Requests;
 
 class InventorController extends Controller
 {
+    // function __construct()
+    // {
+    //     $this->middleware('role');
+    // }
        /**
      * Display a listing of the resource.
      *
@@ -34,8 +40,12 @@ class InventorController extends Controller
      */
     public function create()
     {
-        $inventor=Auth::user()->profil;
-        return view('inventor.profil.create')->with(['profil'=>$inventor]);
+        $user=Auth::user()->admin->profil;
+        if (count($user) > 4){
+            return redirect('admin/datainventor')->with('error','Inventor Melebihi Batas');    
+        }else{
+            return view('admin.createinventor');
+        }
     }
     public function draft($id){
         $draft=Draftinventor::find($id);
@@ -57,6 +67,7 @@ class InventorController extends Controller
         $profil->no_telp=$request->input('no_telp');
         $profil->judul=$request->input('inovasi');
         $profil->admin_id=Auth::user()->admin->id;
+        $profil->kabupaten=$request->input('kabupaten');
         $user->name=$request->input('username');
         $user->password=bcrypt($request->input('password'));
         $user->email=$request->input('email');
@@ -64,7 +75,17 @@ class InventorController extends Controller
         $user->save();
         $profil->user_id=$user->id;
         $profil->save();
-        return ([$profil,$user]);
+        $proposal=new Proposal();
+        $proposal->status=0;
+        $proposal->profil_id=$profil->id;
+        $proposal->save();
+        $inventor=new Inventor();
+        $inventor->profil_id=$profil->id;
+        $inventor->save();
+        $kuesinventor=new Kuesinventor();
+        $kuesinventor->profil_id=$profil->id;
+        $kuesinventor->save();
+        return redirect ('admin/datainventor')->with('success','Tersimpan');
     }
     /**
      * Display the specified resource.
@@ -114,7 +135,7 @@ class InventorController extends Controller
         $profil->email=$request->input('email');
         $profil->judul=$request->input('inovasi');
         $profil->save();
-        return redirect('inventor')->with('success','Data Telah Diubah');
+        return redirect('inventor')->with('success','Tersimpan');
     }
     /**
      * Remove the specified resource from storage.

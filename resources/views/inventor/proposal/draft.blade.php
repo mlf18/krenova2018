@@ -2,6 +2,7 @@
 @section ('content')
     <div class="content-wrapper">
         <div class="container-fluid">
+            @include('layouts.pesan')
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
             <li class="breadcrumb-item active">
@@ -28,7 +29,7 @@
                             <form method="POST" action="{{url('/proposal')}}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                             <div class="tab-content" id="myTabContent">    
-                                <div class="tab-pane fade show active" id="pendaftaran" role="tabpanel" aria-labelledby="pendaftaran-tab">
+                                    <div class="tab-pane fade show active" id="pendaftaran" role="tabpanel" aria-labelledby="pendaftaran-tab">
                                     {{--  <form method="POST" action="{{url('/proposals')}}">
                                         {{ csrf_field() }}  --}}
                                         <div class="form-group">
@@ -203,6 +204,7 @@
                                         <button type="submit" value="draft" name="submit" class="btn btn-primary">Simpan Daft</button> <button type="submit" value="cetak" name="submit" class="btn btn-default" disabled>Cetak</button> <a href="#" class="btn btn-secondary" id="lanjutkan_pendaftaran">Lanjutkan</a> 
                                     {{--  </form>  --}}
                                 </div>
+                            </div>
                                 <div class="tab-pane fade" id="kuesioner" role="tabpanel" aria-labelledby="kuesioner-tab">
                                     {{--  <form>  --}}
                                         <br>

@@ -15,11 +15,10 @@ class RoleMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if($request->user()->role!="inventor"){
-            return redirect('/inventor');
+        if($request->user()->role !=""){
+            return redirect($request->user()->role);
         }else{
             return redirect('/');
         }
-        return $next($request);
     }
 }

@@ -19,7 +19,7 @@ class ArticleController extends Controller
     {
         //
         $article=Article::all();
-        return view('superadmin.berita')->with(['article'=>$article]);
+        return view('superadmin.article.berita')->with(['article'=>$article]);
     }
 
     /**
@@ -30,7 +30,7 @@ class ArticleController extends Controller
     public function create()
     {
         //
-        return view('superadmin.tambahberita');
+        return view('superadmin.article.tambahberita');
     }
 
     /**
@@ -50,7 +50,7 @@ class ArticleController extends Controller
         $request->file('gambar')->move('file/',$fileName);
         $article->gambar=$fileName;
         $article->save();
-        return redirect('berita');
+        return redirect('berita')->with('success','Tersimpan');
     }
 
     /**
@@ -74,7 +74,7 @@ class ArticleController extends Controller
     {
         //
         $article=Article::find($id);
-        return view('superadmin.editberita')->with(['article'=>$article]);
+        return view('superadmin.article.editberita')->with(['article'=>$article]);
     }
 
     /**
@@ -95,9 +95,8 @@ class ArticleController extends Controller
         $request->file('gambar')->move('file/',$fileName);
         $article->gambar=$fileName;
         $article->save();
-        return redirect('berita');
+        return redirect('berita')->with('success','Tersimpan');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -109,6 +108,6 @@ class ArticleController extends Controller
         //
         $article=Article::find($id);
         $article->delete();
-        return redirect('berita');
+        return redirect('berita')->with('success','Terhapus');
     }
 }

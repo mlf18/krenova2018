@@ -3,43 +3,51 @@
 @section('content')
 <div class="container">
 
-    <div class="row">
+      <div class="row">
 
-      <!-- Post Content Column -->
-      <div class="col-lg-8">
+        <!-- Post Content Column -->
+        <div class="col-lg-8">
 
-        <!-- Title -->
-        <h1 class="mt-4">Unduh</h1>
+          <!-- Title -->
+          <h1 class="mt-4">Unduh</h1>
 
-        <!-- Author -->
-        
+          <!-- Author -->
+          
 
-        <hr>
+          <hr>
 
-        
-        <!-- Post Content -->
-       <p><a href="#">Buku Panduan Krenova</a><br>
-<a href="#">Surat Edaran</a><br>
-<a href="#">Formulir Keaslian Temuan</a><br>
+          
+          <!-- Post Content -->
+         <p>
+
+            <ol>
+              <li><a href="2018/pdf/SuratEdaranKrenova2018DinasPendidikan.pdf">Surat Edaran Krenova 2018 - Dinas Pendidikan</a><br>
+              </li><li><a href="2018/pdf/SuratEdaranKrenova2018BupatiWalikota.pdf">Surat Edaran Krenova 2018 - Bupati/WaliKota</a><br>
+              </li><li><a href="2018/pdf/SuratEdaranKrenova2018.pdf">Surat Edaran Krenova 2018</a><br>
+              </li><li><a href="2018/pdf/PanduanKrenova2018.pdf">Buku Panduan Krenova 2018</a><br>
+              </li><li><a href="2018/pdf/SURATPERNYATAANKEASLIAN.pdf">Formulir Keaslian Temuan</a><br>
+              </li>
+            </ol>
+
 
 </p>
-        
-        <hr>
+          
+          <hr>
 
-        
+          
 
-        <!-- Single Comment -->
-     
+          <!-- Single Comment -->
+       
 
-        <!-- Comment with nested comments -->
+          <!-- Comment with nested comments -->
+          
+
+        </div>
+
         
 
       </div>
-
-      
+      <!-- /.row -->
 
     </div>
-    <!-- /.row -->
-
-  </div>
   @endsection

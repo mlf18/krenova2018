@@ -14,10 +14,10 @@ class Profil extends Model
         return $this->belongsTo('App\Admin');
     }
     public function inventor(){
-        return $this->hasOne('App\Inventor');
+        return $this->hasMany('App\Inventor');
     }
     public function proposal(){
-        return $this->hasOne('App\Proposal');
+        return $this->hasMany('App\Proposal');
     }
     public function kuesinventor(){
         return $this->hasOne('App\Kuesinventor');

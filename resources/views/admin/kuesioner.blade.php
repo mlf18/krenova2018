@@ -2,6 +2,7 @@
 @section ('content')
 	<div class="content-wrapper">
 	    <div class="container-fluid">
+			@include('layouts.pesan')
 		    <!-- Breadcrumbs-->
 		     <ol class="breadcrumb">
 		        <li class="breadcrumb-item">
@@ -30,7 +31,7 @@
 									</div>
 									<div class="form-group">
 									    <label for="lampiranperda1_name">Jika ada, Lampirkan  </label>
-									    <input type="file" class="form-control-file" id="lampiranperda1_name" name="lampiranperda1_name">
+									    <input type="file" class="form-control-file" id="lampiranperda1_name" name="lampiranperda1_name" required>
 									</div>
 									<div class="form-group">
 									    <label for="lampiranperda2_name"> </label>
@@ -87,8 +88,9 @@
 									    <label for="dimana">Jumlah pemenang Lomba Krenova di tingkat Provinsi Tahun 2018 </label>
 									     <input type="text" class="form-control" id="ide" placeholder="Diisi oleh BAPPEDA Provinsi"  disabled>
 									</div>
-									  <button type="submit" name='submit' value="draft" class="btn btn-primary">Simpan Draft</button> <button type="submit" class="btn btn-success">Kirim</button>
-							</form> 
+									  <button type="button" class="btn btn-primary">Simpan Draft</button> <button type="submit" class="btn btn-success">Cetak</button>
+							</form><button type="submit" class="btn btn-success">Kirim</button>
+							</form>
 				        </div>
 				    </div>		
 				</div>

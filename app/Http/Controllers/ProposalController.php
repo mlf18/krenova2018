@@ -76,19 +76,30 @@ class ProposalController extends Controller
      */
     public function store(Request $request)
     {
+        
         if ($request->input('submit')!='draft'){
+            $this->validate($request,[
+                'proposal_file_1' => 'required',
+                'proposal_surat' => 'required',
+                'proposal_pendukung' => 'required',
+                'proposal_daftar_riwayat_hidup' => 'required',
+                'proposal_foto_ktp' => 'required',
+    
+            ]);    
         $profil=Auth::user()->profil;
-        if (isset($profil->inventor)){
-            $inventor=$profil->inventor;
-        }else{
-            $inventor=new Inventor();
-        }
+        // if (isset($profil->inventor)){
+        //     $inventor=$profil->inventor->first();
+        // }else{
+        //     $inventor=new Inventor();
+        // }
+        $inventor=Inventor::where('profil_id','=',$profil->id)->first();
         $inventor->kategori=$request->input('bidang_perorangan');
         $inventor->nama=$profil->nama;
         $inventor->alamat=$profil->alamat;
         $inventor->pekerjaan=$request->input('pekerjaan_perorangan');
         $inventor->email=$profil->email;
         $inventor->no_telp=$profil->no_telp;
+        $inventor->kabupaten=$profil->kabupaten;
         $inventor->kategori_kelompok=$request->input('bidang_kelompok');
         $inventor->nama_kelompok=$request->input('nama_kelompok');
         $inventor->nama_ketua=$request->input('ketua_kelompok');
@@ -99,21 +110,22 @@ class ProposalController extends Controller
         $inventor->anggota_2=$request->input('nama_anggota_kelompok_2');
         $inventor->anggota_3=$request->input('nama_anggota_kelompok_3');
         $inventor->anggota_4=$request->input('nama_anggota_kelompok_4');
-        $inventor->temuan=$request->input('karya_usul_kelompok');
-        $inventor->judul=$request->input('temuan_baru_kelompok');
-        $inventor->pengembangan=$request->input('pengembangan_dari_kelompok');
+        $inventor->temuan=$request->input('karya_usul_kelompok')!=''?$request->input('karya_usul_kelompok'):$request->input('karya_usul_perorangan');
+        $inventor->judul=$request->input('temuan_baru_kelompok')!=''?$request->input('temuan_baru_kelompok'):$request->input('temuan_baru_perorangan');
+        $inventor->pengembangan=$request->input('pengembangan_dari_kelompok')!=''?$request->input('pengembangan_dari_kelompok'):$request->input('pengembangan_dari_perorangan');
         $inventor->profil_id=$profil->id;
-        // $inventor->save();
+        $inventor->save();
         // if($request->input('submit')=="draft-profil"){
         //     $temuan->draft=1;
         // }else{
         //     $temuan->draft=0;
         // }
-        if (isset($profil->kuesinventor)){
-            $temuan=$profil->kuesinventor;
-        }else{
-            $temuan = new Kuesinventor();
-        }
+        // if (isset($profil->kuesinventor)){
+        //     $temuan=$profil->kuesinventor;
+        // }else{
+        //     $temuan = new Kuesinventor();
+        // }
+        $temuan=Kuesinventor::where('profil_id','=',$profil->id)->first();
         $temuan->temuan_asli=$request->input('temuan_asli');
         $temuan->waktu_produksi=$request->input('waktu_produksi');
         $temuan->sudah_ada=$request->input('orisinalitas_alat');
@@ -136,11 +148,12 @@ class ProposalController extends Controller
         $temuan->orientasi=$request->input('komersil_kebutuhan');
         $temuan->profil_id=$profil->id;
         $temuan->save();
-        if (isset($profil->proposal)){
-            $proposal=$profil->proposal;
-        }else{
-            $proposal = new Proposal();
-        }
+        // if (isset($profil->proposal)){
+        //     $proposal=$profil->proposal;
+        // }else{
+        //     $proposal = new Proposal();
+        // }
+        $proposal=Proposal::where('profil_id','=',$profil->id)->first();
         $proposal->abstrak=$request->input('proposal_abstrak');
         $proposal->latar_belakang=$request->input('proposal_latar_belakang');
         $proposal->maksud=$request->input('proposal_maksud_tujuan');
@@ -242,11 +255,13 @@ class ProposalController extends Controller
         }else{
             $proposal->ktp_name='';
         }
-        $proposal->status=1;
+        $proposal->status=0;
         $proposal->profil_id=$profil->id;
         $draft=Draftinventor::where('profil_id','=',$proposal->profil_id);
         $proposal->save();
-        $draft->delete();
+        if (isset($draft)){
+            $draft->delete();
+        }
         }else{
         $profil=Auth::user()->profil;
         $draft = new Draftinventor();
@@ -394,7 +409,7 @@ class ProposalController extends Controller
         $draft->profil_id=$profil->id;
         $draft->save();
         }
-        return ([$draft]);
+        return redirect('inventor')->with('success','Tersimpan');
         // return redirect('/proposal/create')->with('success', 'Saved');
     }
     /**

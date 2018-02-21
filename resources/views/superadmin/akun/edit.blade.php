@@ -10,6 +10,6 @@
 	    </div>
 	@endif
 	{!! Form::model($edit, ['route' => ['user.update', $edit->id],'method'=>'PATCH','id'=>'formUser']) !!}
-		@include('superadmin.akun._form', , ['submitButton' => 'Update User'])
+		@include('superadmin.akun._form',  ['submitButton' => 'Update User'])
 	{!! Form::close() !!}
 @endsection

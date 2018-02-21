@@ -1,6 +1,8 @@
 @extends ('layouts.admin')
 @section ('content')
 <div class="content-wrapper">
+    <div class="container-fluid">
+        @include('layouts.pesan')
     <div class="row">
       <div class="col-xl-3 col-sm-6 mb-3">
           <div class="card text-white bg-danger o-hidden h-100">
@@ -35,41 +37,6 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th width="5%">No</th>
-                                <th width="25%">Nama</th>
-                                <th width="25%">Tanggal</th>
-                                <th width="25%">Pilihan</th>
-                            </tr>
-                        </thead>
-                            <tfoot>
-                                <tr>
-                                  <th>No</th>
-                                  <th>Nama</th>
-                                  <th>Tanggal</th>
-                                  <th>Pilihan</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                @foreach($drafts as $draft)
-                                <tr>
-                                    <td>{{$draft->id}}</td>
-                                    <td>Draft_{{$draft->id}}</td>
-                                    <td>{{$draft->created_at}}</td>
-                                    <td><a href="{{url('admin/draft/'.$draft->id)}}">Lanjutkan</a></td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                    </table>	
-                </div>
-            </div>
-        </div>
     </div>
-    </div>
+</div>
 @endsection

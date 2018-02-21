@@ -2,6 +2,7 @@
 @section('content')
     <div class="content-wrapper">
         <div class="container-fluid">
+                @include('layouts.pesan')
         <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item active">

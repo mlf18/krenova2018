@@ -1,8 +1,8 @@
 @extends ('layouts.admin')
 @section ('content')
-
  <div class="content-wrapper">
     <div class="container-fluid">
+      @include('layouts.pesan')
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
@@ -13,7 +13,7 @@
       <div class="row">
         <div class="col-12">
           <div class="card mb-3">
-            <div class="card-header"><button type="button" class="btn btn-primary">Tambah Inventor</button> </div>
+            <div class="card-header"><a type="button" class="btn btn-primary" href="{{url('/inventor/create')}}">Tambah Inventor</a> </div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -25,7 +25,7 @@
                       <th>Pekerjaan</th>
                       <th>No Telp</th>
                       <th>Email</th>
-          				  <th>Pilihan</th>
+                    <th>Pilihan</th>
                           </tr>
                         </thead>
                         <tfoot>
@@ -36,29 +36,43 @@
                             <th>Pekerjaan</th>
                             <th>No Telp</th>
                             <th>Email</th>
-          				  <th>Pilihan</th>
+                    <th>Pilihan</th>
                           </tr>
                         </tfoot>
+                         
+
                         <tbody>
-                          @foreach($p as $pro)
-                          @if(isset($pro->profil))
+                          <?php $ip=1;?>
+                          @foreach($admins->profil as $profil)
+                          
                           <tr>
-                            <td>1</td>
-                    <td>{{$pro->profil->nama}}</td>
-                    <td>{{$pro->profil->alamat}}</td>
-                            <td>{{isset($pro->profil->inventor)?$pro->profil->inventor->pekerjaan:''}}</td>
-                            <td>{{$pro->profil->no_telp}}</td>
-                            <td>{{$pro->profil->email}}</td>
-                    <td><a href="{{url('admin/editprofil/'.$pro->profil->id)}}" class="btn btn-primary">Edit</a> 
-                      <form method="post" action="{{url('/admin/deletesprofil/'.$pro->profil->id)}}" enctype="multipart/form-data">
-                        {{csrf_field()}}
-                        <button type="submit" class="btn btn-danger">Hapus</button>
-                      </form>
-                    </td>
+                              
+                            <td>{{ $ip++ }}</td>
+                            <td>{{ $profil->nama!=''?$profil->nama:'-' }}</td>
+                            <td>{{ $profil->alamat!=''?$profil->alamat:'-' }}</td>
+                            <td>
+                            @if(count($profil->inventor)>0)
+                              @foreach($profil->inventor as $i)
+                                  {{ $i->pekerjaan!=''?$i->pekerjaan:'-'  }}
+                              @endforeach
+                            @else
+                              -
+                            @endif
+                             </td>
+                            <td>{{ $profil->no_telp!=''?$profil->no_telp:'-' }}</td>
+                            <td>{{ $profil->email!=''?$profil->email:'-' }}</td>
+                            <td><a href="{{url('admin/editprofil/'.$profil->id)}}" class="btn btn-primary">Edit</a> 
+                              <form method="post" action="{{url('/admin/deletesprofil/'.$profil->id)}}" enctype="multipart/form-data">
+                                {{csrf_field()}}
+                                <button type="submit" onclick="return confirm('Apakah anda yakin ?')" class="btn btn-danger">Hapus</button>
+                              </form>
+                            </td>
+                        
                     </tr>
-                    @endif
-                    @endforeach
-                  </tbody>
+                     
+						   @endforeach 
+						   </tbody>
+                  
                 </table>
               </div>
             </div>

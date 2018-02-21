@@ -66,7 +66,7 @@ class UserController extends Controller
         $admin->save();
              
        
-        return redirect('superadmin');
+        return redirect('superadmin')->with('success','Tersimpan');
     }
 
     /**

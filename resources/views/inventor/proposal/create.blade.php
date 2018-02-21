@@ -2,6 +2,7 @@
 @section ('content')
     <div class="content-wrapper">
         <div class="container-fluid">
+            @include('layouts.pesan')
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
             <li class="breadcrumb-item active">
@@ -137,6 +138,18 @@
                                                     <label for="alamat_email_perorangan">Alamat E-mail</label>
                                                     <input type="e-mail" class="form-control" id="alamat_email_perorangan" name="alamat_email_perorangan" value="{{$profil->email}}" readonly>
                                                 </div>
+                                                <div class="form-group">
+                                                        <label for="karya_usul_kelompok">Karya Yang Diusulkan</label>
+                                                        <input type="text" class="form-control" id="karya_usul_perorangan" name="karya_usul_perorangan" value="{{isset($inventor->temuan)?$inventor->temuan:''}}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="temuan_baru_kelompok">Temuan Baru</label>
+                                                        <input type="text" class="form-control" id="temuan_baru_kelompok" name="temuan_baru_perorangan" value="{{isset($inventor->judul)?$inventor->judul:''}}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="pengembangan_dari_kelompok">Pengembangan dari</label>
+                                                        <input type="text" class="form-control" id="pengembangan_dari_kelompok" name="pengembangan_dari_perorangan" value="{{isset($inventor->pengembangan)?$inventor->pengembangan:''}}">
+                                                    </div>
                                             </div>
                                             <div class="tab-pane fade" id="nav-kelompok" role="tabpanel" aria-labelledby="nav-kelompok-tab">
                                                 <br>
@@ -215,7 +228,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="waktu_produksi"> - Kapan temuan ini diproduksi (bulan, tahun)?</label>
-                                            <input type="text" class="form-control" id="waktu_produksi" name="waktu_produksi">
+                                            <input type="date" class="form-control" id="waktu_produksi" name="waktu_produksi">
                                         </div>
                                         <div class="form-group">
                                             <label for="orisinalitas_alat"> - Apakah sudah ada alat sejenis yang sudah ada? Jelaskan</label>
@@ -346,7 +359,7 @@
                                             <textarea class="form-control" id="proposal_prospek" name="proposal_prospek" rows="3"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label for="proposal_file_1">Foto Produk (Maksimal size 1 mb) <br><small>File pdf/jpg</small></label>
+                                            <label for="proposal_file_1">Foto Produk (Maksimal size 1 mb) Foto Pertama dijadikan Foto Profil Voting <br><small>File pdf/jpg</small></label>
                                             <input type="file" class="form-control-file" id="proposal_file_1" name="proposal_file_1">
                                         </div>
                                         <div class="form-group">
@@ -370,19 +383,19 @@
                                             <input type="file" class="form-control-file" id="proposal_pendukung" name="proposal_pendukung">
                                         </div>
                                         <div class="form-group">
-                                            {{--  <label for="no_hp"></label>  --}}
+                                            {{--  <label for="proposal_pendukung"></label>  --}}
                                             <input type="file" class="form-control-file" id="proposal_daftar_riwayat" name="proposal_daftar_riwayat_1">
                                         </div>
                                         <div class="form-group">
-                                            {{--  <label for="no_hp"></label>  --}}
+                                            {{--  <label for="proposal_pendukung"></label>  --}}
                                             <input type="file" class="form-control-file" id="proposal_daftar_riwayat_2" name="proposal_daftar_riwayat_2">
                                         </div>
                                         <div class="form-group">
-                                            <label for="no_hp"></label>
+                                            <label for="proposal_pendukung"></label>
                                             <input type="file" class="form-control-file" id="proposal_daftar_riwayat_3" name="proposal_daftar_riwayat_3">
                                         </div>
                                         <div class="form-group">
-                                            <label for="no_hp"></label>
+                                            <label for="proposal_pendukung"></label>
                                             <input type="file" class="form-control-file" id="proposal_daftar_riwayat_4" name="proposal_daftar_riwayat_4">
                                         </div>
                                         <div class="form-group">

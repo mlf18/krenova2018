@@ -96,4 +96,10 @@ class HomeController extends Controller
         ];
         return view('content.rekap.index')->with(['navbar'=>$nav]);
     }
+    public function pollingdetail(){
+        $nav=[
+            '','','','active',''
+        ];
+        return view('content.polling.detail')->with(['navbar'=>$nav]);
+    }
 }

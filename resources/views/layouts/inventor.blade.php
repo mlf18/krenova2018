@@ -37,7 +37,7 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Penganjuan Proposal">
           <a class="nav-link" href="{{route('proposal.create')}}">
             <i class="fa fa-fw fa-file-text"></i>
-            <span class="nav-link-text">Penganjuan Proposal</span>
+            <span class="nav-link-text">Pengajuan Proposal</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Ganti Password">
@@ -65,13 +65,12 @@
       </ul>
     </div>
   </nav>
-
   @yield ('content')
   
    <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small>Copyright © Krenova 2018</small>
+          <small>Copyright © UPP IPTEKIN BAPPEDA PROVINSI JAWA TENGAH 2018</small>
         </div>
       </div>
     </footer>
@@ -80,6 +79,23 @@
       <i class="fa fa-angle-up"></i>
     </a>
     <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"></h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Apakah anda ingin keluar ?</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+            <a class="btn btn-primary" href="{{ url('/logout') }}">Keluar</a>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="{{asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Core plugin JavaScript-->

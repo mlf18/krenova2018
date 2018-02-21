@@ -62,7 +62,7 @@
 
 		
 		<div class="form-group" align="right">
-			{!! Form::submit($submitButton, ['class' => 'btn btn-Success']) !!}				
+			{!! Form::submit($submitButton, ['class' => 'btn btn-secondary']) !!}				
 		</div>
 	</div>
 </div>

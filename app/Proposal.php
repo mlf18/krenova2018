@@ -8,6 +8,6 @@ class Proposal extends Model
 {
     //
     public function profil(){
-        return $this->belongTo('App\Profil');
+        return $this->belongsTo('App\Profil');
     }
 }
