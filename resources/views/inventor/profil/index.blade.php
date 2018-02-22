@@ -50,7 +50,7 @@
                             </div>
                             <div class="mr-5">Ganti Password</div>
                         </div>
-                        <a href="password.html" class="card-footer text-white clearfix small z-1" href="#">
+                        <a href="{{url('inventor/resetpassword')}}" class="card-footer text-white clearfix small z-1" href="#">
                             <span class="float-left">Ganti Password</span>
                             <span class="float-right">
                             <i class="fa fa-angle-right"></i>

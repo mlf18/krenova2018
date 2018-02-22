@@ -51,6 +51,20 @@ class InventorController extends Controller
         $draft=Draftinventor::find($id);
         return view('inventor.proposal.draft')->with('draft',$draft);
     }
+    public function resetpassword(){
+        return view('inventor.password.reset');
+    }
+    public function storepassword(Request $request){
+        if ($request->input('password')==$request->input('confirm_password')){
+            $user=Auth::user();
+            $user->password=bcrypt($request->input('password'));
+            if($user->save()){
+              return redirect('inventor')->with('success','Tersimpan');
+            }
+        }else{
+            return redirect('inventor/resetpassword')->with('error','Gagal Menyimpan Periksa Kembali Password Anda');
+        }
+    }
     /**
      * Store a newly created resource in storage.
      *

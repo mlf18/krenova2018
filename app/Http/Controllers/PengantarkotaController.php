@@ -35,7 +35,9 @@ class PengantarkotaController extends Controller
     public function store(Request $request)
     {
         $admin=Auth::user()->admin;
-
+        $this->validate($request,[
+            'nama_surat'=>'required|mimes:pdf|max:2047'
+        ]);
         $pengantarkota = new Pengantarkota();
 
         $pengantarkota->admin_id = $admin->id;

@@ -14,7 +14,7 @@ use App\Admin;
 
 class UserController extends Controller
 {
-    /**
+/**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -51,6 +51,8 @@ class UserController extends Controller
         }
         
         $user = User::create($request->all());
+        $user->password=bcrypt($user->password);
+        $user->role=$request->input('role');
         $user->save();
         
         $admin = new Admin();

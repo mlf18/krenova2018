@@ -359,7 +359,7 @@
                                             <textarea class="form-control" id="proposal_prospek" name="proposal_prospek" rows="3"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label for="proposal_file_1">Foto Produk (Maksimal size 1 mb) Foto Pertama dijadikan Foto Profil Voting <br><small>File pdf/jpg</small></label>
+                                            <label for="proposal_file_1">Foto Produk (Maksimal size 1 mb) Foto Pertama dijadikan Foto Profil Voting <br><small>File jpg</small></label>
                                             <input type="file" class="form-control-file" id="proposal_file_1" name="proposal_file_1">
                                         </div>
                                         <div class="form-group">
@@ -391,11 +391,11 @@
                                             <input type="file" class="form-control-file" id="proposal_daftar_riwayat_2" name="proposal_daftar_riwayat_2">
                                         </div>
                                         <div class="form-group">
-                                            <label for="proposal_pendukung"></label>
+                                            {{--  <label for="proposal_pendukung"></label>  --}}
                                             <input type="file" class="form-control-file" id="proposal_daftar_riwayat_3" name="proposal_daftar_riwayat_3">
                                         </div>
                                         <div class="form-group">
-                                            <label for="proposal_pendukung"></label>
+                                            {{--  <label for="proposal_pendukung"></label>  --}}
                                             <input type="file" class="form-control-file" id="proposal_daftar_riwayat_4" name="proposal_daftar_riwayat_4">
                                         </div>
                                         <div class="form-group">

@@ -41,7 +41,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Ganti Password">
-          <a class="nav-link" href="{{url('user/edit')}}">
+          <a class="nav-link" href="{{url('inventor/resetpassword')}}">
             <i class="fa fa-fw fa-key"></i>
             <span class="nav-link-text">Ganti Password</span>
           </a>

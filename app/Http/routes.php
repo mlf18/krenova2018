@@ -64,6 +64,8 @@ Route::get('/config-cache', function() {
 Route::get('/artikel/{id}/show','HomeController@showArtikel');
 Route::get('/admin/editprofil/{id}', 'AdminController@editinventor');
 Route::get('/inventor/editprofil', 'InventorController@edit');
+Route::get('/inventor/resetpassword', 'InventorController@resetpassword');
+Route::post('/inventor/resetpassword', 'InventorController@storepassword');
 Route::patch('/admin/updateprofil/{id}', 'AdminController@updateprofil');
 Route::post('/admin/deletesprofil/{id}', 'AdminController@deletesprofil');
 Route::get('/inventor/draft/{id}','ProposalController@draft');

@@ -36,9 +36,8 @@
 		<div class="form-group">
 					{!! Form::label('role', 'Kategori') !!}
 					{!! Form::select('role', [ 
-						'-' => '-',
-						'superadmin' => 'superadmin',
 						'admin' => 'admin',
+						'superadmin' => 'superadmin',
 						'inventor' => 'inventor'
 						], null, 
 						['class'=>'form-control']) !!}

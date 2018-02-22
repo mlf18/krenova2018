@@ -79,12 +79,28 @@ class ProposalController extends Controller
         
         if ($request->input('submit')!='draft'){
             $this->validate($request,[
-                'proposal_file_1' => 'required',
-                'proposal_surat' => 'required',
-                'proposal_pendukung' => 'required',
-                'proposal_daftar_riwayat_hidup' => 'required',
-                'proposal_foto_ktp' => 'required',
-    
+                'proposal_abstrak'=>'required',
+                'proposal_latar_belakang'=>'required',
+                'proposal_maksud_tujuan'=>'required',
+                'proposal_manfaat'=>'required',
+                'proposal_spesifikasi'=>'required',
+                'proposal_keunggulan'=>'required',
+                'proposal_penerapan'=>'required',
+                'proposal_perhitungan'=>'required',
+                'proposal_prospek'=>'required',
+                'proposal_file_1' => 'required|image|max:1024',
+                'proposal_file_2' => 'image|max:1024',
+                'proposal_file_3' => 'image|max:1024',
+                'proposal_file_4' => 'image|max:1024',
+                'proposal_surat' => 'required|mimes:pdf|max:2048',
+                'proposal_pendukung' => 'required|mimes:pdf,jpeg,png,jpg|max:2047',
+                'proposal_daftar_riwayat'=>'mimes:pdf,jpeg,png,jpg|max:2047',
+                'proposal_daftar_riwayat_2'=>'mimes:pdf,jpeg,png,jpg|max:2047',
+                'proposal_daftar_riwayat_3'=>'mimes:pdf,jpeg,png,jpg|max:2047',
+                'proposal_daftar_riwayat_4'=>'mimes:pdf,jpeg,png,jpg|max:2047',
+                'proposal_pendukung' => 'required|mimes:pdf,jpg,jpeg,png|max:2047',
+                'proposal_daftar_riwayat_hidup' => 'required|mimes:pdf,jpg,jpeg,png|max:2047',
+                'proposal_foto_ktp' => 'required|mimes:pdf,jpeg,png,jpg|max:2047',
             ]);    
         $profil=Auth::user()->profil;
         // if (isset($profil->inventor)){
@@ -114,7 +130,7 @@ class ProposalController extends Controller
         $inventor->judul=$request->input('temuan_baru_kelompok')!=''?$request->input('temuan_baru_kelompok'):$request->input('temuan_baru_perorangan');
         $inventor->pengembangan=$request->input('pengembangan_dari_kelompok')!=''?$request->input('pengembangan_dari_kelompok'):$request->input('pengembangan_dari_perorangan');
         $inventor->profil_id=$profil->id;
-        $inventor->save();
+        // $inventor->save();
         // if($request->input('submit')=="draft-profil"){
         //     $temuan->draft=1;
         // }else{
@@ -147,7 +163,7 @@ class ProposalController extends Controller
         $temuan->quantity_bahan=$request->input('komersil_banyak');
         $temuan->orientasi=$request->input('komersil_kebutuhan');
         $temuan->profil_id=$profil->id;
-        $temuan->save();
+        // $temuan->save();
         // if (isset($profil->proposal)){
         //     $proposal=$profil->proposal;
         // }else{
@@ -258,7 +274,7 @@ class ProposalController extends Controller
         $proposal->status=0;
         $proposal->profil_id=$profil->id;
         $draft=Draftinventor::where('profil_id','=',$proposal->profil_id);
-        $proposal->save();
+        // $proposal->save();
         if (isset($draft)){
             $draft->delete();
         }
