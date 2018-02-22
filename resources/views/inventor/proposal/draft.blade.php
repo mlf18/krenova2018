@@ -111,20 +111,20 @@
                                                 <div class="form-group">
                                                     <label for="bidang_perorangan">Bidang</label>
                                                     <select class="form-control" id="bidang_perorangan" name="bidang_perorangan">
-                                                        <option value="agribisnis dan pangan" {{isset($draft->kategori) ? $draft->kategori=="agribisnis dan pangan"?"selected":'':''}}>Agribisnis dan pangan</option>
-                                                        <option value="energi" {{isset($draft->kategori)?$draft->kategori=="energi"?"selected":'':''}}>Energi</option>
-                                                        <option value="kehutanan dan lingkungan hidup" {{isset($draft->kategori)?$draft->kategori=="kehutanan dan lingkungan hidup"?"selected":'':''}}>Kehutanan dan lingkungan hidup</option>
-                                                        <option value="kelautan dan perikanan" {{isset($draft->kategori)?$draft->kategori=="kelautan dan perikanan"?"selected":'':''}}>Kelautan dan perikanan</option>
-                                                        <option value="kesehatan, obat-obatan dan kosmetika" {{isset($draft->kategori)?$draft->kategori=="kesehatan, obat-obatan dan kosmetika"?"selected":'':''}}>Kesehatan, obat-obatan dan kosmetika</option>
-                                                        <option value="pendidikan" {{isset($draft->kategori)?$draft->kategori=="pendidikan"?"selected":'':''}}>Pendidikan</option>
-                                                        <option value="rekayasa teknologi dan manufaktur" {{isset($draft->kategori)?$draft->kategori=="rekayasa teknologi dan manufaktur"?"selected":'':''}}>Rekayasa Teknologi dan manufaktur</option>
-                                                        <option value="kerajinan dan industri rumah tangga" {{isset($draft->kategori)?$draft->kategori=="kerajinan dan industri rumah tangga"?"selected":'':''}}>Kerajinan dan industri rumah tangga</option>
-                                                        <option value="sosial" {{isset($draft->kategori)?$draft->kategori=="sosial"?"selected":'':''}}>Sosial</option>
+                                                        <option value="agribisnis dan pangan">Agribisnis dan pangan</option>
+                                                        <option value="energi">Energi</option>
+                                                        <option value="kehutanan dan lingkungan hidup">Kehutanan dan lingkungan hidup</option>
+                                                        <option value="kelautan dan perikanan">Kelautan dan perikanan</option>
+                                                        <option value="kesehatan, obat-obatan dan kosmetika">Kesehatan, obat-obatan dan kosmetika</option>
+                                                        <option value="pendidikan">Pendidikan</option>
+                                                        <option value="rekayasa teknologi dan manufaktur">Rekayasa Teknologi dan manufaktur</option>
+                                                        <option value="kerajinan dan industri rumah tangga">Kerajinan dan industri rumah tangga</option>
+                                                        <option value="sosial">Sosial</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="alamat_perorangan">Alamat</label>
-                                                    <input type="text" class="form-control" id="alamat_perorangan" name="alamat_perorangan" value="{{$profil->alamat}}" readonly>
+                                                    <input type="text" class="form-control" id="alamat_perorangan" name="alamat_perorangan" value="{{$draft->alamat}}" readonly>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="pekerjaan_perorangan">Pekerjaan</label>
@@ -132,12 +132,24 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="no_telp_perorangan">No Telepon/HP</label>
-                                                    <input type="text" class="form-control" id="no_telp_perorangan" name="no_telp_perorangan" value="{{$profil->no_telp}}" readonly>
+                                                    <input type="text" class="form-control" id="no_telp_perorangan" name="no_telp_perorangan" value="{{$draft->no_telp}}" readonly>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="alamat_email_perorangan">Alamat E-mail</label>
-                                                    <input type="e-mail" class="form-control" id="alamat_email_perorangan" name="alamat_email_perorangan" value="{{$profil->email}}" readonly>
+                                                    <input type="e-mail" class="form-control" id="alamat_email_perorangan" name="alamat_email_perorangan" value="{{$draft->email}}" readonly>
                                                 </div>
+                                                <div class="form-group">
+                                                        <label for="karya_usul_kelompok">Karya Yang Diusulkan</label>
+                                                        <input type="text" class="form-control" id="karya_usul_perorangan" name="karya_usul_perorangan" value="{{isset($draft->temuan)?$draft->temuan:''}}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="temuan_baru_kelompok">Temuan Baru</label>
+                                                        <input type="text" class="form-control" id="temuan_baru_kelompok" name="temuan_baru_perorangan" value="{{isset($draft->judul)?$draft->judul:''}}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="pengembangan_dari_kelompok">Pengembangan dari</label>
+                                                        <input type="text" class="form-control" id="pengembangan_dari_kelompok" name="pengembangan_dari_perorangan" value="{{isset($draft->pengembangan)?$draft->pengembangan:''}}">
+                                                    </div>
                                             </div>
                                             <div class="tab-pane fade" id="nav-kelompok" role="tabpanel" aria-labelledby="nav-kelompok-tab">
                                                 <br>
@@ -145,24 +157,24 @@
                                                 <div class="form-group">
                                                     <label for="bidang_kelompok">Bidang</label>
                                                     <select class="form-control" id="bidang_kelompok" name="bidang_kelompok">
-                                                        <option value="agribisnis dan pangan" {{isset($draft->kategori)?$draft->kategori=="agribisnis dan pangan"?"selected":'':''}}>Agribisnis dan pangan</option>
-                                                        <option value="energi" {{isset($draft->kategori)?$draft->kategori=="energi"?"selected":'':''}}>Energi</option>
-                                                        <option value="kehutanan dan lingkungan hidup" {{isset($draft->kategori)?$draft->kategori=="kehutanan dan lingkungan hidup"?"selected":'':''}}>Kehutanan dan lingkungan hidup</option>
-                                                        <option value="kelautan dan perikanan" {{isset($draft->kategori)?$draft->kategori=="kelautan dan perikanan"?"selected":'':''}}>Kelautan dan perikanan</option>
-                                                        <option value="kesehatan, obat-obatan dan kosmetika" {{isset($draft->kategori)?$draft->kategori=="kesehatan, obat-obatan dan kosmetika"?"selected":'':''}}>Kesehatan, obat-obatan dan kosmetika</option>
-                                                        <option value="pendidikan" {{isset($draft->kategori)?$draft->kategori=="pendidikan"?"selected":'':''}}>Pendidikan</option>
-                                                        <option value="rekayasa teknologi dan manufaktur" {{isset($draft->kategori)?$draft->kategori=="rekayasa teknologi dan manufaktur"?"selected":'':''}}>Rekayasa Teknologi dan manufaktur</option>
-                                                        <option value="kerajinan dan industri rumah tangga" {{isset($draft->kategori)?$draft->kategori=="kerajinan dan industri rumah tangga"?"selected":'':''}}>Kerajinan dan industri rumah tangga</option>
-                                                        <option value="sosial" {{isset($draft->kategori)?$draft->kategori=="sosial"?"selected":'':''}}>Sosial</option>
+                                                        <option value="agribisnis dan pangan">Agribisnis dan pangan</option>
+                                                        <option value="energi">Energi</option>
+                                                        <option value="kehutanan dan lingkungan hidup">Kehutanan dan lingkungan hidup</option>
+                                                        <option value="kelautan dan perikanan">Kelautan dan perikanan</option>
+                                                        <option value="kesehatan, obat-obatan dan kosmetika">Kesehatan, obat-obatan dan kosmetika</option>
+                                                        <option value="pendidikan">Pendidikan</option>
+                                                        <option value="rekayasa teknologi dan manufaktur">Rekayasa Teknologi dan manufaktur</option>
+                                                        <option value="kerajinan dan industri rumah tangga">Kerajinan dan industri rumah tangga</option>
+                                                        <option value="sosial">Sosial</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="nama_kelompok">Nama Kelompok</label>
-                                                    <input type="text" class="form-control" id="nama_kelompok" name="nama_kelompok" value="{{isset($draft->nama_kelompok)?$draft->nama_kelompok:''}}">
+                                                    <input type="text" class="form-control" id="nama_kelompok" name="nama_kelompok">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="ketua_kelompok">Nama Ketua Kelompok</label>
-                                                    <input type="text" class="form-control" id="ketua_kelompok" name="ketua_kelompok" value="{{isset($draft->nama_ketua)?$draft->nama_ketua:''}}">
+                                                    <input type="text" class="form-control" id="ketua_kelompok" name="ketua_kelompok">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="alamat_kelompok">Alamat Kelompok</label>
@@ -187,9 +199,11 @@
                                                     <input type="text" class="form-control" id="nama_anggota_kelompok_3" name="nama_anggota_kelompok_3" placeholder="Nama Anggota 3" value="{{isset($draft->anggota_3)?$draft->anggota_3:''}}">
                                                 </div>
                                                 <div class="form-group">
+                                                    <input type="text" class="form-control" id="nama_anggota_kelompok_4" name="nama_anggota_kelompok_4" placeholder="Nama Anggota 4" value="{{isset($draft->anggota_4)?$draft->anggota_4:''}}">
+                                                </div>
                                                 <div class="form-group">
                                                     <label for="karya_usul_kelompok">Karya Yang Diusulkan</label>
-                                                    <input type="text" class="form-control" id="karya_usul_kelompok" name="karya_usul_kelompok" value="{{isset($draft->anggota_4)?$draft->anggota_4:''}}">
+                                                    <input type="text" class="form-control" id="karya_usul_kelompok" name="karya_usul_kelompok" value="{{isset($draft->temuan)?$draft->temuan:''}}">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="temuan_baru_kelompok">Temuan Baru</label>
@@ -204,7 +218,6 @@
                                         <button type="submit" value="draft" name="submit" class="btn btn-primary">Simpan Daft</button> <button type="submit" value="cetak" name="submit" class="btn btn-default" disabled>Cetak</button> <a href="#" class="btn btn-secondary" id="lanjutkan_pendaftaran">Lanjutkan</a> 
                                     {{--  </form>  --}}
                                 </div>
-                            </div>
                                 <div class="tab-pane fade" id="kuesioner" role="tabpanel" aria-labelledby="kuesioner-tab">
                                     {{--  <form>  --}}
                                         <br>
@@ -307,7 +320,7 @@
                                     {{--  <form>  --}}
                                         <div class="form-group">
                                             <label for="proposal_judul">Judul</label>
-                                            <input type="text" class="form-control" id="proposal_judul" name="proposal_judul" value="{{$profil->judul}}" disabled>
+                                            <input type="text" class="form-control" id="proposal_judul" name="proposal_judul" value="{{$draft->judul}}" disabled>
                                         </div>
                                         <div class="form-group">
                                             <label for="proposal_abstrak">Abstrak / Ringkasan Eksekutif</label>

@@ -297,9 +297,9 @@ class ProposalController extends Controller
         $draft->anggota_2=$request->input('nama_anggota_kelompok_2');
         $draft->anggota_3=$request->input('nama_anggota_kelompok_3');
         $draft->anggota_4=$request->input('nama_anggota_kelompok_4');
-        $draft->temuan=$request->input('karya_usul_kelompok');
-        $draft->judul=$request->input('temuan_baru_kelompok');
-        $draft->pengembangan=$request->input('pengembangan_dari_kelompok');
+        $draft->temuan=$request->input('karya_usul_kelompok')!=''?$request->input('karya_usul_kelompok'):$request->input('karya_usul_perorangan');
+        $draft->judul=$request->input('temuan_baru_kelompok')!=''?$request->input('temuan_baru_kelompok'):$request->input('temuan_baru_perorangan');
+        $draft->pengembangan=$request->input('pengembangan_dari_kelompok')!=''?$request->input('pengembangan_dari_kelompok'):$request->input('pengembangan_dari_perorangan');
         $draft->temuan_asli=$request->input('temuan_asli');
         $draft->waktu_produksi=$request->input('waktu_produksi');
         $draft->sudah_ada=$request->input('orisinalitas_alat');
